@@ -3,13 +3,33 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Token;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
     public function logout(Request $request) {
-        
+        $fields = $request -> all();
+        $validator = Validator::make($fields,[ 'token_id' => 'required' ]);
+
+        if(!$validator -> fails()) {
+            Token::where('id', $fields['token_id']) -> delete();
+            
+            return response() -> json([
+                'status' => true,
+                'message' => 'Token deleted'
+            ],200);
+        }
+
+        else {
+            return response() -> json([
+                'status' => false,
+                'message' => 'Token couldnt be deleted',
+                'errors' => $validator -> errors()
+            ],401);
+        }
+
     }
 
     public function login(Request $request) {

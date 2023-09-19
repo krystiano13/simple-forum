@@ -1,5 +1,6 @@
 @import './micro-css-framework/colors.css';
 @import './micro-css-framework/margins.css';
+@import './micro-css-framework/paddings.css';
 
 *,
 *::before,

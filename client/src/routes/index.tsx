@@ -5,7 +5,7 @@ import type { DocumentHead } from "@builder.io/qwik-city";
 export default component$(() => {
   return (
     <>
-      <h1>Simple forum</h1>
+      <h1 class="text-center f-h1">Simple forum</h1>
     </>
   );
 });

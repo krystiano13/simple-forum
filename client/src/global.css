@@ -5,6 +5,7 @@
 @import './micro-css-framework/displays.css';
 @import './micro-css-framework/flex.css';
 @import './micro-css-framework/grid.css';
+@import './micro-css-framework/text.css';
 
 *,
 *::before,

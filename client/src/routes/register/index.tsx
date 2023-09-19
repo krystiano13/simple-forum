@@ -7,32 +7,35 @@ export default component$(() => {
   return (
     <div class="formWrapper flex jc-center ai-center">
       <form class="flex flex-col jc-center ai-center p-4 pt-8 pb-8 bg-primary">
-        <h1 class="m-3 color text-center f-h1">Register</h1>
+        <h1 class="m-3 color text-center f-h1 font-head">Register</h1>
         <input
-          class="m-3 p-2 bg-secondary f-s color"
+          class="m-3 p-2 bg-secondary f-s color font-other"
           placeholder="username"
           type="text"
           name="name"
         />
         <input
-          class="m-3 p-2 bg-secondary f-s color"
+          class="m-3 p-2 bg-secondary f-s color font-other"
           placeholder="email address"
           type="email"
           name="email"
         />
         <input
-          class="m-3 p-2 bg-secondary f-s color"
+          class="m-3 p-2 bg-secondary f-s color font-other"
           placeholder="password"
           type="password"
           name="password"
         />
         <input
-          class="m-3 p-2 bg-secondary f-s color"
+          class="m-3 p-2 bg-secondary f-s color font-other"
           placeholder="repeat password"
           type="password"
           name="password_confirmation"
         />
-        <button class="m-3 p-2 bg-accent color-bg f-600 f-s" type="submit">
+        <button
+          class="m-3 p-2 bg-accent color-bg f-600 f-s font-head"
+          type="submit"
+        >
           Create Account
         </button>
       </form>

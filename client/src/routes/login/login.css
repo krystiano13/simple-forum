@@ -1,0 +1,38 @@
+.formWrapper {
+    width : 100%;
+    height : 100%;
+}
+
+form {
+    min-height : 35rem;
+    min-width : 25rem;
+    border-top : solid var(--accent) 0.25rem;
+}
+
+form > * { 
+    box-sizing: border-box; 
+    width : 90%;
+}
+
+input {
+    border: none;
+    border-bottom: solid var(--accent) 2px;
+    outline : none;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    border-bottom: var(--secondary) solid 0.25rem;
+
+    transition: 250ms;
+}
+
+button:hover {
+    background-color: #65cfe7;
+}
+
+button:active {
+    border : none;
+}
+

@@ -5,3 +5,8 @@
 .ac-start { align-content: flex-start; }
 .ac-center { align-content: center; }
 .ac-end { align-content: flex-end; }
+
+.flex-col { flex-direction: column; }
+.flex-colr { flex-direction: column-reverse; }
+.flex-row { flex-direction: row; }
+.flex-rowr { flex-direction: row-reverse; }

@@ -1,0 +1,7 @@
+.jc-start { justify-content: flex-start; }
+.jc-center { justify-content: center; }
+.jc-end { justify-content: flex-end; }
+
+.ac-start { align-content: flex-start; }
+.ac-center { align-content: center; }
+.ac-end { align-content: flex-end; }

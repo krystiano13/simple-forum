@@ -1,0 +1,7 @@
+.ji-left { justify-items: left; }
+.ji-center { justify-items: center; }
+.ji-right { justify-items: right; }
+
+.ai-left { align-items: left; }
+.ai-center { align-items: center; }
+.ai-right { align-items: right; }

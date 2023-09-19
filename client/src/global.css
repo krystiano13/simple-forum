@@ -1,6 +1,10 @@
 @import './micro-css-framework/colors.css';
 @import './micro-css-framework/margins.css';
 @import './micro-css-framework/paddings.css';
+@import './micro-css-framework/positions.css';
+@import './micro-css-framework/displays.css';
+@import './micro-css-framework/flex.css';
+@import './micro-css-framework/grid.css';
 
 *,
 *::before,

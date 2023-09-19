@@ -6,6 +6,8 @@
 @import './micro-css-framework/flex.css';
 @import './micro-css-framework/grid.css';
 @import './micro-css-framework/text.css';
+@import './micro-css-framework/container.css';
+@import './micro-css-framework/grid-system.css';
 
 *,
 *::before,

@@ -1,0 +1,52 @@
+.container {
+    width : 80%;
+    height : auto;
+}
+
+.container-xxs {
+    @media screen and (max-width : 320px) {
+        width : 100%;
+    }
+}
+
+.container-xs {
+    @media screen and (max-width : 360px) {
+        width : 100%;
+    }
+}
+
+.container-m {
+    @media screen and (max-width : 480px) {
+        width : 100%;
+    }
+}
+
+.container-l {
+    @media screen and (max-width : 560px) {
+        width : 100%;
+    }
+}
+
+.container-xl {
+    @media screen and (max-width : 720px) {
+        width : 100%;
+    }
+}
+
+.container-xxl {
+    @media screen and (max-width : 992px) {
+        width : 100%;
+    }
+}
+
+.container-b1 {
+    @media screen and (max-width : 1024px) {
+        width : 100%;
+    }
+}
+
+.container-b2 {
+    @media screen and (max-width : 1280px) {
+        width : 100%;
+    }
+}

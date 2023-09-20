@@ -1,13 +1,16 @@
-import { component$, useSignal } from "@builder.io/qwik";
+import { component$, useSignal, useStylesScoped$ } from "@builder.io/qwik";
+import NavbarStyles from "./Navbar.css?inline";
 
 export const Navbar = component$(() => {
   const isLoggedIn = useSignal(false);
   const user = useSignal("Admin");
 
+  useStylesScoped$(NavbarStyles);
+
   return (
-    <nav class="navbar">
+    <nav class="navbar p-1 bg-primary flex ai-center jc-between">
       <section class="title">
-        <h1>Simple Forum</h1>
+        <h1 class="font-head color">Simple Forum</h1>
       </section>
       <section class="content">
         <form>

@@ -1,0 +1,4 @@
+.navbar {
+    width : 100%;
+    border-bottom : solid var(--accent) 0.25rem;
+}

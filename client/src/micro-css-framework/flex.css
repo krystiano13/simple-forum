@@ -1,6 +1,9 @@
 .jc-start { justify-content: flex-start; }
 .jc-center { justify-content: center; }
 .jc-end { justify-content: flex-end; }
+.jc-evenly { justify-content: space-evenly; }
+.jc-around { justify-content: space-around; }
+.jc-between { justify-content: space-between; }
 
 .ac-start { align-content: flex-start; }
 .ac-center { align-content: center; }

@@ -1,15 +1,4 @@
-@import './micro-css-framework/colors.css';
-@import './micro-css-framework/margins.css';
-@import './micro-css-framework/paddings.css';
-@import './micro-css-framework/positions.css';
-@import './micro-css-framework/displays.css';
-@import './micro-css-framework/flex.css';
-@import './micro-css-framework/grid.css';
-@import './micro-css-framework/text.css';
-@import './micro-css-framework/container.css';
-@import './micro-css-framework/grid-system.css';
-@import './micro-css-framework/border-radius.css';
-@import './micro-css-framework/fonts.css';
+@import './micro-css-framework/index.css';
 
 *,
 *::before,

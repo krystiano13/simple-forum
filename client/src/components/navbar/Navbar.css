@@ -1,4 +1,30 @@
 .navbar {
-    width : 100%;
-    border-bottom : solid var(--accent) 0.25rem;
+  width: 100%;
+  border-bottom: solid var(--accent) 0.25rem;
+}
+
+.navbar .content form > * {
+  box-sizing: border-box;
+}
+
+input {
+  border: none;
+  border-bottom: solid var(--accent) 2px;
+  outline: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  border-bottom: var(--secondary) solid 0.25rem;
+
+  transition: background-color 250ms;
+}
+
+button:hover {
+  background-color: #65cfe7;
+}
+
+button:active {
+  border: none;
 }

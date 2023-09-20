@@ -10,18 +10,31 @@ export const Navbar = component$(() => {
   return (
     <nav class="navbar p-1 bg-primary flex ai-center jc-between">
       <section class="title">
-        <h1 class="font-head color">Simple Forum</h1>
+        <h1 class="font-head f-600 f-l p-1 color">Simple Forum</h1>
       </section>
-      <section class="content">
-        <form>
-          <input type="text" placeholder="Find something ..." />
-          <button type="submit">Search</button>
+      <section class="content flex">
+        <form class="m-1">
+          <input
+            class="p-1 pl-4 pr-4 font-other bg-secondary color"
+            type="text"
+            placeholder="Find something ..."
+          />
+          <button
+            class="p-1 pl-2 pr-2 font-head bg-accent color-bg"
+            type="submit"
+          >
+            Search
+          </button>
         </form>
-        <div class="user">
-          {isLoggedIn.value ? (
+        <div class="user m-1">
+          {isLoggedIn.value === false ? (
             <>
-              <button>Log In</button>
-              <button>Register</button>
+              <button class="ml-1 mr-1 p-1 pl-4 pr-4 font-head bg-accent color-bg">
+                Log In
+              </button>
+              <button class="ml-1 mr-1 p-1 pl-4 pr-4 font-head bg-accent color-bg">
+                Register
+              </button>
             </>
           ) : (
             <a href="/">{user.value}</a>

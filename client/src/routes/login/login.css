@@ -27,7 +27,7 @@ button {
     cursor: pointer;
     border-bottom: var(--secondary) solid 0.25rem;
 
-    transition: 250ms;
+    transition: background-color 250ms;
 }
 
 button:hover {

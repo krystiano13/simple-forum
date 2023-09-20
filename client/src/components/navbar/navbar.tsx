@@ -1,6 +1,6 @@
 import { component$, useSignal } from "@builder.io/qwik";
 
-export default component$(() => {
+export const Navbar = component$(() => {
   const isLoggedIn = useSignal(false);
   const user = useSignal("Admin");
 

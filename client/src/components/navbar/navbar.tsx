@@ -1,5 +1,6 @@
 import { component$, useSignal, useStylesScoped$ } from "@builder.io/qwik";
 import NavbarStyles from "./Navbar.css?inline";
+import { Link } from "@builder.io/qwik-city";
 
 export const Navbar = component$(() => {
   const isLoggedIn = useSignal(false);
@@ -29,12 +30,16 @@ export const Navbar = component$(() => {
         <div class="user m-1 flex">
           {isLoggedIn.value === false ? (
             <>
-              <button class="ml-1 mr-1 p-1 pl-4 pr-4 font-head bg-accent color-bg">
-                Login
-              </button>
-              <button class="ml-1 mr-1 p-1 pl-4 pr-4 font-head bg-accent color-bg">
-                Register
-              </button>
+              <Link href="/login">
+                <button class="ml-1 mr-1 p-1 pl-4 pr-4 font-head bg-accent color-bg">
+                  Login
+                </button>
+              </Link>
+              <Link href="/register">
+                <button class="ml-1 mr-1 p-1 pl-4 pr-4 font-head bg-accent color-bg">
+                  Register
+                </button>
+              </Link>
             </>
           ) : (
             <a href="/">{user.value}</a>

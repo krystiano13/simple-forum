@@ -13,7 +13,7 @@ export const Navbar = component$(() => {
         <h1 class="font-head f-600 f-l p-1 color">Simple Forum</h1>
       </section>
       <section class="content flex">
-        <form class="m-1">
+        <form class="m-1 flex">
           <input
             class="p-1 pl-4 pr-4 font-other bg-secondary color"
             type="text"
@@ -26,11 +26,11 @@ export const Navbar = component$(() => {
             Search
           </button>
         </form>
-        <div class="user m-1">
+        <div class="user m-1 flex">
           {isLoggedIn.value === false ? (
             <>
               <button class="ml-1 mr-1 p-1 pl-4 pr-4 font-head bg-accent color-bg">
-                Log In
+                Login
               </button>
               <button class="ml-1 mr-1 p-1 pl-4 pr-4 font-head bg-accent color-bg">
                 Register

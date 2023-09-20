@@ -3,20 +3,45 @@
   border-bottom: solid var(--accent) 0.25rem;
 }
 
+.navbar .content {
+    flex-wrap: nowrap;
+}
+
 .navbar .content form > * {
   box-sizing: border-box;
+}
+
+.navbar .title h1 {
+    @media screen and (max-width: 992px) {
+        font-size : 1rem;
+    }
 }
 
 input {
   border: none;
   border-bottom: solid var(--accent) 2px;
   outline: none;
+
+  @media screen and (max-width: 992px) {
+    padding: 0rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    font-size: 0.75rem;
+  }
 }
 
 button {
   border: none;
   cursor: pointer;
   border-bottom: var(--secondary) solid 0.25rem;
+
+   @media screen and (max-width: 992px) {
+    padding: 0.25rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: 0.75rem;
+  }
+
 
   transition: background-color 250ms;
 }

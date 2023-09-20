@@ -4,7 +4,22 @@
 }
 
 .navbar .content {
-    flex-wrap: nowrap;
+    @media screen and (max-width: 992px) {
+        flex-direction: column;
+    }
+}
+
+.user, button {
+    @media screen and (max-width: 992px) {
+        margin-left: 0;
+    }
+}
+
+
+.navbar .content form {
+    @media screen and (max-width: 992px) {
+        margin: 0;
+    }
 }
 
 .navbar .content form > * {

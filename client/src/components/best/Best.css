@@ -1,4 +1,27 @@
 .best {
-    height : auto;
-    min-height : 20rem;
+  height: auto;
+  min-height: 20rem;
+}
+
+.best .panel {
+  width: 50%;
+  border-radius: 1rem;
+}
+
+.best .panel .buttons {
+  width: 100%;
+}
+
+.best .panel .buttons button {
+  width: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+#b1 {
+    border-bottom: var(--accent) solid 0.15rem;
+}
+
+#b2 {
+    border-bottom: var(--secondary) solid 0.15rem;
 }

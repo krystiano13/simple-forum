@@ -4,22 +4,23 @@
 }
 
 .navbar .content {
-    @media screen and (max-width: 992px) {
-        flex-direction: column;
-    }
+  @media screen and (max-width: 992px) {
+    flex-direction: column;
+  }
 }
 
-.user, button, .btn {
-    @media screen and (max-width: 992px) {
-        margin-left: 0;
-    }
+.user,
+button,
+.btn {
+  @media screen and (max-width: 992px) {
+    margin-left: 0;
+  }
 }
-
 
 .navbar .content form {
-    @media screen and (max-width: 992px) {
-        margin: 0;
-    }
+  @media screen and (max-width: 992px) {
+    margin: 0;
+  }
 }
 
 .navbar .content form > * {
@@ -27,9 +28,9 @@
 }
 
 .navbar .title h1 {
-    @media screen and (max-width: 992px) {
-        font-size : 1rem;
-    }
+  @media screen and (max-width: 992px) {
+    font-size: 1rem;
+  }
 }
 
 input {
@@ -45,26 +46,28 @@ input {
   }
 }
 
-button, .btn {
+button,
+.btn {
   border: none;
   cursor: pointer;
   border-bottom: var(--secondary) solid 0.25rem;
 
-   @media screen and (max-width: 992px) {
+  @media screen and (max-width: 992px) {
     padding: 0.25rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     font-size: 0.75rem;
   }
 
-
   transition: background-color 250ms;
 }
 
-button:hover, .btn:hover {
+button:hover,
+.btn:hover {
   background-color: #65cfe7;
 }
 
-button:active, .btn:active {
+button:active,
+.btn:active {
   border: none;
 }

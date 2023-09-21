@@ -1,10 +1,15 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
+import { Best } from "~/components/best/Best";
 
 export default component$(() => {
   return (
-    <div>
-      <h1 class="text-center f-h1">Simple forum</h1>
+    <div class="container container-xxl row">
+      <div class="col-6 col-xxl-12">
+        <Best />
+      </div>
+      <div class="col-6 col-xxl-12"></div>
+      <div class="col-12"></div>
     </div>
   );
 });
@@ -18,11 +23,11 @@ export const head: DocumentHead = {
     },
     {
       name: "author",
-      content: "Krystian Zieja"
+      content: "Krystian Zieja",
     },
     {
       name: "keywords",
-      content: "forum, simple, everything, ask, answers"
-    }
+      content: "forum, simple, everything, ask, answers",
+    },
   ],
 };

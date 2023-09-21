@@ -1,24 +1,31 @@
+$text: #d2f6ff;
+$background: #00252d;
+$primary: #0288a7;
+$secondary: #01242c;
+$accent: #94ebfe;
+
+
 .navbar {
   width: 100%;
-  border-bottom: solid #94ebfe 0.25rem;
+  border-bottom: solid $accent 0.25rem;
 }
 
-@media screen and (max-width: 992px) {
-  .navbar .content {
+.navbar .content {
+  @media screen and (max-width: 992px) {
     flex-direction: column;
   }
 }
 
-@media screen and (max-width: 992px) {
-  .user,
-  button,
-  .btn {
+.user,
+button,
+.btn {
+  @media screen and (max-width: 992px) {
     margin-left: 0;
   }
 }
 
-@media screen and (max-width: 992px) {
-  .navbar .content form {
+.navbar .content form {
+  @media screen and (max-width: 992px) {
     margin: 0;
   }
 }
@@ -27,19 +34,18 @@
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 992px) {
-  .navbar .title h1 {
+.navbar .title h1 {
+  @media screen and (max-width: 992px) {
     font-size: 1rem;
   }
 }
 
 input {
   border: none;
-  border-bottom: solid #94ebfe 2px;
+  border-bottom: solid $accent 2px;
   outline: none;
-}
-@media screen and (max-width: 992px) {
-  input {
+
+  @media screen and (max-width: 992px) {
     padding: 0rem;
     padding-left: 0.2rem;
     padding-right: 0.2rem;
@@ -51,17 +57,16 @@ button,
 .btn {
   border: none;
   cursor: pointer;
-  border-bottom: #01242c solid 0.25rem;
-  transition: background-color 250ms;
-}
-@media screen and (max-width: 992px) {
-  button,
-  .btn {
+  border-bottom: $secondary solid 0.25rem;
+
+  @media screen and (max-width: 992px) {
     padding: 0.25rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     font-size: 0.75rem;
   }
+
+  transition: background-color 250ms;
 }
 
 button:hover,
@@ -72,4 +77,4 @@ button:hover,
 button:active,
 .btn:active {
   border: none;
-}/*# sourceMappingURL=Navbar.css.map */
+}

@@ -1,0 +1,141 @@
+.col-1 { width : calc(1/12 * 100%); }
+.col-2 { width : calc(2/12 * 100%); }
+.col-3 { width : calc(3/12 * 100%); }
+.col-4 { width : calc(4/12 * 100%); }
+.col-5 { width : calc(5/12 * 100%); }
+.col-6 { width : calc(6/12 * 100%); }
+.col-7 { width : calc(7/12 * 100%); }
+.col-8 { width : calc(8/12 * 100%); }
+.col-9 { width : calc(9/12 * 100%); }
+.col-10 { width : calc(10/12 * 100%); }
+.col-11 { width : calc(11/12 * 100%); }
+.col-12 { width : 100%; }
+
+.row {
+    display : flex;
+    width : 100%;
+    flex-wrap: wrap;
+}
+
+
+/* XXS column styles */
+
+.col-xxs-1 { @media screen and (max-width : $xxs) { width : calc(1/12 * 100%);  }}
+.col-xxs-2 { @media screen and (max-width : $xxs) { width : calc(2/12 * 100%);  }}
+.col-xxs-3 { @media screen and (max-width : $xxs) { width : calc(3/12 * 100%);  }}
+.col-xxs-4 { @media screen and (max-width : $xxs) { width : calc(4/12 * 100%);  }}
+.col-xxs-5 { @media screen and (max-width : $xxs) { width : calc(5/12 * 100%);  }}
+.col-xxs-6 { @media screen and (max-width : $xxs) { width : calc(6/12 * 100%);  }}
+.col-xxs-7 { @media screen and (max-width : $xxs) { width : calc(7/12 * 100%);  }}
+.col-xxs-8 { @media screen and (max-width : $xxs) { width : calc(8/12 * 100%);  }}
+.col-xxs-9 { @media screen and (max-width : $xxs) { width : calc(9/12 * 100%);  }}
+.col-xxs-10 { @media screen and (max-width : $xxs) { width : calc(10/12 * 100%); } }
+.col-xxs-11 { @media screen and (max-width : $xxs) { width : calc(11/12 * 100%); } }
+.col-xxs-12 { @media screen and (max-width : $xxs) { width : 100%; } }
+
+/* XS column styles */
+
+.col-xs-1 { @media screen and (max-width : $xs) { width : calc(1/12 * 100%);  }}
+.col-xs-2 { @media screen and (max-width : $xs) { width : calc(2/12 * 100%);  }}
+.col-xs-3 { @media screen and (max-width : $xs) { width : calc(3/12 * 100%);  }}
+.col-xs-4 { @media screen and (max-width : $xs) { width : calc(4/12 * 100%);  }}
+.col-xs-5 { @media screen and (max-width : $xs) { width : calc(5/12 * 100%);  }}
+.col-xs-6 { @media screen and (max-width : $xs) { width : calc(6/12 * 100%);  }}
+.col-xs-7 { @media screen and (max-width : $xs) { width : calc(7/12 * 100%);  }}
+.col-xs-8 { @media screen and (max-width : $xs) { width : calc(8/12 * 100%);  }}
+.col-xs-9 { @media screen and (max-width : $xs) { width : calc(9/12 * 100%);  }}
+.col-xs-10 { @media screen and (max-width : $xs) { width : calc(10/12 * 100%); } }
+.col-xs-11 { @media screen and (max-width : $xs) { width : calc(11/12 * 100%); } }
+.col-xs-12 { @media screen and (max-width : $xs) { width : 100%; } }
+
+/* M column styles */
+
+.col-m-1 { @media screen and (max-width : $m) { width : calc(1/12 * 100%);  }}
+.col-m-2 { @media screen and (max-width : $m) { width : calc(2/12 * 100%);  }}
+.col-m-3 { @media screen and (max-width : $m) { width : calc(3/12 * 100%);  }}
+.col-m-4 { @media screen and (max-width : $m) { width : calc(4/12 * 100%);  }}
+.col-m-5 { @media screen and (max-width : $m) { width : calc(5/12 * 100%);  }}
+.col-m-6 { @media screen and (max-width : $m) { width : calc(6/12 * 100%);  }}
+.col-m-7 { @media screen and (max-width : $m) { width : calc(7/12 * 100%);  }}
+.col-m-8 { @media screen and (max-width : $m) { width : calc(8/12 * 100%);  }}
+.col-m-9 { @media screen and (max-width : $m) { width : calc(9/12 * 100%);  }}
+.col-m-10 { @media screen and (max-width : $m) { width : calc(10/12 * 100%); } }
+.col-m-11 { @media screen and (max-width : $m) { width : calc(11/12 * 100%); } }
+.col-m-12 { @media screen and (max-width : $m) { width : 100%; } }
+
+/* L column styles */
+
+.col-l-1 { @media screen and (max-width : $l) { width : calc(1/12 * 100%);  }}
+.col-l-2 { @media screen and (max-width : $l) { width : calc(2/12 * 100%);  }}
+.col-l-3 { @media screen and (max-width : $l) { width : calc(3/12 * 100%);  }}
+.col-l-4 { @media screen and (max-width : $l) { width : calc(4/12 * 100%);  }}
+.col-l-5 { @media screen and (max-width : $l) { width : calc(5/12 * 100%);  }}
+.col-l-6 { @media screen and (max-width : $l) { width : calc(6/12 * 100%);  }}
+.col-l-7 { @media screen and (max-width : $l) { width : calc(7/12 * 100%);  }}
+.col-l-8 { @media screen and (max-width : $l) { width : calc(8/12 * 100%);  }}
+.col-l-9 { @media screen and (max-width : $l) { width : calc(9/12 * 100%);  }}
+.col-l-10 { @media screen and (max-width : $l) { width : calc(10/12 * 100%); } }
+.col-l-11 { @media screen and (max-width : $l) { width : calc(11/12 * 100%); } }
+.col-l-12 { @media screen and (max-width : $l) { width : 100%; } }
+
+/* XL column styles */
+
+.col-xl-1 { @media screen and (max-width : $xl) { width : calc(1/12 * 100%);  }}
+.col-xl-2 { @media screen and (max-width : $xl) { width : calc(2/12 * 100%);  }}
+.col-xl-3 { @media screen and (max-width : $xl) { width : calc(3/12 * 100%);  }}
+.col-xl-4 { @media screen and (max-width : $xl) { width : calc(4/12 * 100%);  }}
+.col-xl-5 { @media screen and (max-width : $xl) { width : calc(5/12 * 100%);  }}
+.col-xl-6 { @media screen and (max-width : $xl) { width : calc(6/12 * 100%);  }}
+.col-xl-7 { @media screen and (max-width : $xl) { width : calc(7/12 * 100%);  }}
+.col-xl-8 { @media screen and (max-width : $xl) { width : calc(8/12 * 100%);  }}
+.col-xl-9 { @media screen and (max-width : $xl) { width : calc(9/12 * 100%);  }}
+.col-xl-10 { @media screen and (max-width : $xl) { width : calc(10/12 * 100%); } }
+.col-xl-11 { @media screen and (max-width : $xl) { width : calc(11/12 * 100%); } }
+.col-xl-12 { @media screen and (max-width : $xl) { width : 100%; } }
+
+/* XXL column styles */
+
+.col-xxl-1 { @media screen and (max-width : $xxl) { width : calc(1/12 * 100%);  }}
+.col-xxl-2 { @media screen and (max-width : $xxl) { width : calc(2/12 * 100%);  }}
+.col-xxl-3 { @media screen and (max-width : $xxl) { width : calc(3/12 * 100%);  }}
+.col-xxl-4 { @media screen and (max-width : $xxl) { width : calc(4/12 * 100%);  }}
+.col-xxl-5 { @media screen and (max-width : $xxl) { width : calc(5/12 * 100%);  }}
+.col-xxl-6 { @media screen and (max-width : $xxl) { width : calc(6/12 * 100%);  }}
+.col-xxl-7 { @media screen and (max-width : $xxl) { width : calc(7/12 * 100%);  }}
+.col-xxl-8 { @media screen and (max-width : $xxl) { width : calc(8/12 * 100%);  }}
+.col-xxl-9 { @media screen and (max-width : $xxl) { width : calc(9/12 * 100%);  }}
+.col-xxl-10 { @media screen and (max-width : $xxl) { width : calc(10/12 * 100%); } }
+.col-xxl-11 { @media screen and (max-width : $xxl) { width : calc(11/12 * 100%); } }
+.col-xxl-12 { @media screen and (max-width : $xxl) { width : 100% !important;} }
+
+/* B1 column styles */
+
+.col-b1-1 { @media screen and (max-width : $b1) { width : calc(1/12 * 100%);  }}
+.col-b1-2 { @media screen and (max-width : $b1) { width : calc(2/12 * 100%);  }}
+.col-b1-3 { @media screen and (max-width : $b1) { width : calc(3/12 * 100%);  }}
+.col-b1-4 { @media screen and (max-width : $b1) { width : calc(4/12 * 100%);  }}
+.col-b1-5 { @media screen and (max-width : $b1) { width : calc(5/12 * 100%);  }}
+.col-b1-6 { @media screen and (max-width : $b1) { width : calc(6/12 * 100%);  }}
+.col-b1-7 { @media screen and (max-width : $b1) { width : calc(7/12 * 100%);  }}
+.col-b1-8 { @media screen and (max-width : $b1) { width : calc(8/12 * 100%);  }}
+.col-b1-9 { @media screen and (max-width : $b1) { width : calc(9/12 * 100%);  }}
+.col-b1-10 { @media screen and (max-width : $b1) { width : calc(10/12 * 100%); } }
+.col-b1-11 { @media screen and (max-width : $b1) { width : calc(11/12 * 100%); } }
+.col-b1-12 { @media screen and (max-width : $b1) { width : 100%; } }
+
+/* B2 column styles */
+
+.col-b2-1 { @media screen and (max-width : $b2) { width : calc(1/12 * 100%);  }}
+.col-b2-2 { @media screen and (max-width : $b2) { width : calc(2/12 * 100%);  }}
+.col-b2-3 { @media screen and (max-width : $b2) { width : calc(3/12 * 100%);  }}
+.col-b2-4 { @media screen and (max-width : $b2) { width : calc(4/12 * 100%);  }}
+.col-b2-5 { @media screen and (max-width : $b2) { width : calc(5/12 * 100%);  }}
+.col-b2-6 { @media screen and (max-width : $b2) { width : calc(6/12 * 100%);  }}
+.col-b2-7 { @media screen and (max-width : $b2) { width : calc(7/12 * 100%);  }}
+.col-b2-8 { @media screen and (max-width : $b2) { width : calc(8/12 * 100%);  }}
+.col-b2-9 { @media screen and (max-width : $b2) { width : calc(9/12 * 100%);  }}
+.col-b2-10 { @media screen and (max-width : $b2) { width : calc(10/12 * 100%); } }
+.col-b2-11 { @media screen and (max-width : $b2) { width : calc(11/12 * 100%); } }
+.col-b2-12 { @media screen and (max-width : $b2) { width : 100%; } }
+
+

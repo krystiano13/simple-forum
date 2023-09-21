@@ -4,49 +4,49 @@
 }
 
 .container-xxs {
-    @media screen and (max-width : var(--xxs)) {
+    @media screen and (max-width : $xxs) {
         width : 100%;
     }
 }
 
 .container-xs {
-    @media screen and (max-width : var(--xs)) {
+    @media screen and (max-width : $xs) {
         width : 100%;
     }
 }
 
 .container-m {
-    @media screen and (max-width : var(--m)) {
+    @media screen and (max-width : $m) {
         width : 100%;
     }
 }
 
 .container-l {
-    @media screen and (max-width : var(--l)) {
+    @media screen and (max-width : $l) {
         width : 100%;
     }
 }
 
 .container-xl {
-    @media screen and (max-width : var(--xl)) {
+    @media screen and (max-width : $xl) {
         width : 100%;
     }
 }
 
 .container-xxl {
-    @media screen and (max-width : var(--xxl)) {
+    @media screen and (max-width : $xxl) {
         width : 100%;
     }
 }
 
 .container-b1 {
-    @media screen and (max-width : var(--b1)) {
+    @media screen and (max-width : $b1) {
         width : 100%;
     }
 }
 
 .container-b2 {
-    @media screen and (max-width : var(--b2)) {
+    @media screen and (max-width : $b2) {
         width : 100%;
     }
 }

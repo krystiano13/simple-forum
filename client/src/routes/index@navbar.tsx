@@ -5,10 +5,10 @@ import { Best } from "~/components/best/Best";
 export default component$(() => {
   return (
     <div class="container container-xxl row">
-      <div class="col-6 col-xxl-12">
+      <div class="block col-6 col-xxl-12">
         <Best />
       </div>
-      <div class="col-6 col-xxl-12"></div>
+      <div class="col-xxl-12"></div>
       <div class="col-12"></div>
     </div>
   );

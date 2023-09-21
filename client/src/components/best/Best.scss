@@ -1,3 +1,10 @@
+$text: #d2f6ff;
+$background: #00252d;
+$primary: #0288a7;
+$secondary: #01242c;
+$accent: #94ebfe;
+
+
 .best {
   height: auto;
   min-height: 20rem;
@@ -19,9 +26,9 @@
 }
 
 #b1 {
-  border-bottom: #94ebfe solid 0.15rem;
+    border-bottom: $accent solid 0.15rem;
 }
 
 #b2 {
-  border-bottom: #01242c solid 0.15rem;
-}/*# sourceMappingURL=Best.css.map */
+    border-bottom: $secondary solid 0.15rem;
+}

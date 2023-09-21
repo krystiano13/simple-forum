@@ -4,15 +4,23 @@ $primary: #0288a7;
 $secondary: #01242c;
 $accent: #94ebfe;
 
-
 .best {
   height: auto;
   min-height: 20rem;
+
+  @media screen and (max-width : 992px) {
+    .pl-6 { padding-left : 0; }
+  }
 }
 
 .best .panel {
   width: 50%;
   border-radius: 1rem;
+
+  @media screen and (max-width : 992px) {
+    width : 90%;
+  }
+ 
 }
 
 .best .panel .buttons {
@@ -26,9 +34,9 @@ $accent: #94ebfe;
 }
 
 #b1 {
-    border-bottom: $accent solid 0.15rem;
+  border-bottom: $accent solid 0.15rem;
 }
 
 #b2 {
-    border-bottom: $secondary solid 0.15rem;
+  border-bottom: $secondary solid 0.15rem;
 }

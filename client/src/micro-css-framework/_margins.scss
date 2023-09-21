@@ -1,3 +1,5 @@
+$spacer : 1;
+
 .m-1 { margin : calc(0.5rem * $spacer); }
 .mt-1 { margin-top : calc(0.5rem * $spacer); }
 .mb-1 { margin-bottom : calc(0.5rem * $spacer); }

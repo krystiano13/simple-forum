@@ -1,3 +1,5 @@
+$spacer : 1;
+
 .p-1 { padding : calc(0.5rem * $spacer); }
 .pt-1 { padding-top : calc(0.5rem * $spacer); }
 .pb-1 { padding-bottom : calc(0.5rem * $spacer); }

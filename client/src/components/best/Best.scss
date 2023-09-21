@@ -8,8 +8,10 @@ $accent: #94ebfe;
   height: auto;
   min-height: 20rem;
 
-  @media screen and (max-width : 992px) {
-    .pl-6 { padding-left : 0; }
+  @media screen and (max-width: 992px) {
+    .pl-6 {
+      padding-left: 0;
+    }
   }
 }
 
@@ -17,26 +19,25 @@ $accent: #94ebfe;
   width: 50%;
   border-radius: 1rem;
 
-  @media screen and (max-width : 992px) {
-    width : 90%;
+  @media screen and (max-width: 992px) {
+    width: 90%;
   }
- 
 }
 
 .best .panel .buttons {
   width: 100%;
+
+  .b1 {
+    border-bottom: $accent solid 0.15rem;
+  }
+
+  .b2 {
+    border-bottom: $secondary solid 0.15rem;
+  }
 }
 
 .best .panel .buttons button {
   width: 50%;
   border: none;
   cursor: pointer;
-}
-
-#b1 {
-  border-bottom: $accent solid 0.15rem;
-}
-
-#b2 {
-  border-bottom: $secondary solid 0.15rem;
 }

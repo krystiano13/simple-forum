@@ -1,9 +1,13 @@
-import { component$, useSignal, useStylesScoped$ } from "@builder.io/qwik";
+import { component$, useSignal, useStore, useStylesScoped$, useTask$ } from "@builder.io/qwik";
 import BestStyles from "./Best.css?inline";
+import { RequestHandler } from "@builder.io/qwik-city";
+
 
 export const Best = component$(() => {
   useStylesScoped$(BestStyles);
   const mode = useSignal(true);
+  const comments = useSignal<any>([]);
+  const posts = useSignal([]);
 
   return (
     <div class="best flex jc-center flex-col pl-6">
@@ -37,24 +41,11 @@ export const Best = component$(() => {
         </div>
         <div class="users mt-2">
           <div class="user">
-            <div class="block bg-secondary color font-other f-400 p-2 m-1 br-1">
-              Admin (2137)
-            </div>
-            <div class="block bg-secondary color font-other f-400 p-2 m-1 br-1">
-              Admin (2137)
-            </div>
-            <div class="block bg-secondary color font-other f-400 p-2 m-1 br-1">
-              Admin (2137)
-            </div>
-            <div class="block bg-secondary color font-other f-400 p-2 m-1 br-1">
-              Admin (2137)
-            </div>
-            <div class="block bg-secondary color font-other f-400 p-2 m-1 br-1">
-              Admin (2137)
-            </div>
-            <div class="block bg-secondary color font-other f-400 p-2 m-1 br-1">
-              Admin (2137)
-            </div>
+            {comments.value.map((item: { id:number, username:string, count:number }) => (
+              <div key={item.id} class="block bg-secondary color font-other f-400 p-2 m-1 br-1">
+                { item.username } ({ item.count })
+              </div>
+            ))}
           </div>
         </div>
       </div>

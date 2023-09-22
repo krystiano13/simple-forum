@@ -1,9 +1,20 @@
-import { component$, useSignal, useStore, useStylesScoped$, useTask$ } from "@builder.io/qwik";
+import {
+  component$,
+  useSignal,
+  useStore,
+  useStylesScoped$,
+  useTask$,
+} from "@builder.io/qwik";
 import BestStyles from "./Best.css?inline";
 import { RequestHandler } from "@builder.io/qwik-city";
+import type { CountItem } from "~/routes/index@navbar";
 
+interface BestProps {
+  posts: CountItem[];
+  comments: CountItem[];
+}
 
-export const Best = component$(() => {
+export const Best = component$((props: BestProps) => {
   useStylesScoped$(BestStyles);
   const mode = useSignal(true);
   const comments = useSignal<any>([]);
@@ -41,11 +52,33 @@ export const Best = component$(() => {
         </div>
         <div class="users mt-2">
           <div class="user">
-            {comments.value.map((item: { id:number, username:string, count:number }) => (
-              <div key={item.id} class="block bg-secondary color font-other f-400 p-2 m-1 br-1">
-                { item.username } ({ item.count })
-              </div>
-            ))}
+            {mode.value ? (
+              <>
+                {props.comments.map(
+                  (item: { id: number; username: string; count: number }) => (
+                    <div
+                      key={item.id}
+                      class="block bg-secondary color font-other f-400 p-2 m-1 br-1"
+                    >
+                      {item.username} ({item.count})
+                    </div>
+                  )
+                )}
+              </>
+            ) : (
+              <>
+                {props.posts.map(
+                  (item: { id: number; username: string; count: number }) => (
+                    <div
+                      key={item.id}
+                      class="block bg-secondary color font-other f-400 p-2 m-1 br-1"
+                    >
+                      {item.username} ({item.count})
+                    </div>
+                  )
+                )}
+              </>
+            )}
           </div>
         </div>
       </div>

@@ -1,12 +1,31 @@
 import { component$ } from "@builder.io/qwik";
-import type { DocumentHead, RequestHandler } from "@builder.io/qwik-city";
+import { routeLoader$, type DocumentHead, type RequestHandler } from "@builder.io/qwik-city";
 import { Best } from "~/components/best/Best";
 
+export interface CountItem {
+  id: number;
+  username: string;
+  count: number;
+}
+
+interface Count {
+  posts: CountItem[];
+  comments: CountItem[];
+}
+
+export const useCount = routeLoader$(async () => {
+  const res = await fetch("http://127.0.0.1:8000/api/getAllCounts");
+  const data = await res.json();
+
+  return data as Count;
+});
+
 export default component$(() => {
+  const apiData = useCount();  
   return (
     <div class="container container-xxl row">
       <div class="block col-6 col-xxl-12">
-        <Best />
+        <Best posts={apiData.value.posts} comments={apiData.value.comments} />
       </div>
       <div class="col-xxl-12"></div>
       <div class="col-12"></div>

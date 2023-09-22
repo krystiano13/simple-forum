@@ -14,7 +14,7 @@ class CommentsCount extends Model
     * @var string;
     */
 
-    protected $table = 'posts_count';
+    protected $table = 'comments_count';
 
     /** 
     * Primary key

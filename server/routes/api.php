@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CommentsCountController;
+use App\Http\Controllers\CountController;
 use App\Http\Controllers\PostsCountController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -13,6 +14,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/getCommentsCount', [CommentsCountController::class, 'getCount']);
 Route::get('/getPostCount', [PostsCountController::class, 'getCount']);
+Route::get('/getAllCounts', [CountController::class, 'getAllCount']);
 
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login',[UserController::class, 'login']);

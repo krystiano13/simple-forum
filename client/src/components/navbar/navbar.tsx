@@ -2,7 +2,7 @@ import {
   component$,
   useSignal,
   useStylesScoped$,
-  useVisibleTask$
+  useVisibleTask$,
 } from "@builder.io/qwik";
 import NavbarStyles from "./Navbar.css?inline";
 import { Link } from "@builder.io/qwik-city";
@@ -14,7 +14,7 @@ export const Navbar = component$(() => {
   useStylesScoped$(NavbarStyles);
 
   useVisibleTask$(({ track }) => {
-    track(() => window.localStorage.getItem('user'));
+    track(() => window.localStorage.getItem("user"));
     if (
       window.localStorage.getItem("user") &&
       localStorage.getItem("token_id")
@@ -60,7 +60,10 @@ export const Navbar = component$(() => {
               </Link>
             </>
           ) : (
-            <Link class="anchor text-right pl-2 decoration-none c-pointer font-head color f-m" href="/">
+            <Link
+              class="anchor text-right pl-2 decoration-none c-pointer font-head color f-m"
+              href="/"
+            >
               {user.value}
             </Link>
           )}

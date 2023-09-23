@@ -1,12 +1,37 @@
-import { component$, useStylesScoped$ } from "@builder.io/qwik";
+import { component$, useStylesScoped$, $, useSignal } from "@builder.io/qwik";
 import LoginStyles from "../login/login.css?inline";
+
 
 export default component$(() => {
   useStylesScoped$(LoginStyles);
 
+  const formRef = useSignal<HTMLFormElement>();
+
+  const register = $(async (form: HTMLFormElement) => {
+    await fetch('http://127.0.0.1:8000/api/register',
+      { method : "POST", body: new FormData(form) }
+    )
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === true) {
+          alert('Account created successfully !!!');
+          window.location.href = '/';
+        }
+        
+        else {
+          alert('Cannot create an account');
+        }
+    })
+  });
+
   return (
     <div class="formWrapper flex jc-center ai-center">
-      <form class="flex flex-col jc-center ai-center p-4 pt-8 pb-8 bg-primary">
+      <form
+        onSubmit$={() => register(formRef.value as HTMLFormElement)}
+        preventdefault:submit
+        ref={formRef}
+        class="flex flex-col jc-center ai-center p-4 pt-8 pb-8 bg-primary"
+      >
         <h1 class="m-3 color text-center f-h1 font-head">Register</h1>
         <input
           class="m-3 p-2 bg-secondary f-s color font-other"

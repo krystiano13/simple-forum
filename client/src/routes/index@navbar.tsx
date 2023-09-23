@@ -21,7 +21,8 @@ export const useCount = routeLoader$(async () => {
 });
 
 export default component$(() => {
-  const apiData = useCount();  
+  const apiData = useCount();   
+
   return (
     <div class="container container-xxl row">
       <div class="block col-6 col-xxl-12">

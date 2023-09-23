@@ -61,8 +61,8 @@ export const Navbar = component$(() => {
             </>
           ) : (
             <Link
-              class="anchor text-right pl-2 decoration-none c-pointer font-head color f-m"
-              href="/"
+              class="anchor text-right pl-2 pr-2 decoration-none c-pointer font-head color f-m"
+              href="/profile"
             >
               {user.value}
             </Link>

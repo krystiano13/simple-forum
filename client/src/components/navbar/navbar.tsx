@@ -45,7 +45,7 @@ export const Navbar = component$(() => {
             Search
           </button>
         </form>
-        <div class="user m-1 flex">
+        <div class="user m-1 flex ai-center">
           {isLoggedIn.value === false ? (
             <>
               <Link href="/login">
@@ -60,7 +60,9 @@ export const Navbar = component$(() => {
               </Link>
             </>
           ) : (
-            <a href="/">{user.value}</a>
+            <Link class="anchor text-right pl-2 decoration-none c-pointer font-head color f-m" href="/">
+              {user.value}
+            </Link>
           )}
         </div>
       </section>

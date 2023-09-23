@@ -82,7 +82,7 @@ export default component$(() => {
         </button>
 
         {
-          errors.value.map(item => (<p>{ item }</p>))
+          errors.value.map(item => (<p class="text-center font-head color f-500 f-xs">{ item }</p>))
         }
       </form>
     </div>

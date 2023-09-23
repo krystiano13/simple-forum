@@ -85,7 +85,7 @@ class UserController extends Controller
                     "status" => false,
                     "message" => "Validation Error",
                     "errors" => $validator -> errors()
-                ], 401
+                ],
             );
         }
 

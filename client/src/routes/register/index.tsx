@@ -6,6 +6,7 @@ export default component$(() => {
   useStylesScoped$(LoginStyles);
 
   const formRef = useSignal<HTMLFormElement>();
+  const errors = useSignal<any[]>([]);
 
   const register = $(async (form: HTMLFormElement) => {
     await fetch('http://127.0.0.1:8000/api/register',
@@ -19,7 +20,23 @@ export default component$(() => {
         }
         
         else {
-          alert('Cannot create an account');
+          let nameErrors = [];
+          let emailErrors = [];
+          let passwordErrors = [];
+
+          if (data.errors.name) {
+            nameErrors = data.errors.name;
+          }
+
+          if (data.errors.email) {
+            emailErrors = data.errors.email;
+          }
+
+          if (data.errors.password) {
+            passwordErrors = data.errors.password;
+          }
+
+          errors.value = [...nameErrors, ...emailErrors, ...passwordErrors];
         }
     })
   });
@@ -63,6 +80,10 @@ export default component$(() => {
         >
           Create Account
         </button>
+
+        {
+          errors.value.map(item => (<p>{ item }</p>))
+        }
       </form>
     </div>
   );

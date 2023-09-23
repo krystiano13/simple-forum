@@ -5,6 +5,7 @@ export default component$(() => {
   useStylesScoped$(LoginStyles);
 
   const formRef = useSignal<HTMLFormElement>();
+  const errors = useSignal<any[]>([]);
 
   const logIn = $(async (e: QwikSubmitEvent<HTMLFormElement>, form: HTMLFormElement) => {
     await fetch("http://127.0.0.1:8000/api/login", {
@@ -19,7 +20,7 @@ export default component$(() => {
           window.localStorage.setItem("token_id", data.token.id);
           window.location.href = "/";
         } else {
-          alert(data.message);
+          errors.value = [data.message];
         }
       });
   });
@@ -51,6 +52,9 @@ export default component$(() => {
         >
           Log In
         </button>
+        {errors.value.map((item) => (
+          <p class="text-center font-head color f-500 f-xs">{item}</p>
+        ))}
       </form>
     </div>
   );

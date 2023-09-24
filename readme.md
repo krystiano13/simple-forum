@@ -6,7 +6,6 @@
     <li>QWIK</li>
     <li>Typescript</li>
     <li>HTML</li>
-    <li>CSS</li>
     <li>SCSS</li>
     <li>Self-made css framework</li>
 </ul>

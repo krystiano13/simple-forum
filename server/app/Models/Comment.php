@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Comment extends Model
 {
     use HasFactory;
 
@@ -13,31 +13,22 @@ class Post extends Model
      * Table name
      * @var string
     */
-    protected $table = "posts";
+    protected $table = "comments";
 
     /**
      * Primary Key
      * @var string
-     */
+    */
     protected $primaryKey = "id";
 
     /**
      * Fillable
      * @var array
-     */
+    */
     protected $fillable = [
+        'updated_at',
         'created_at',
-        'updated_at',
         'username',
-        'title',
-        'content'
-    ];
-
-    /**
-     * Hidden
-     * @var array
-     */
-    protected $hidden = [
-        'updated_at',
+        'post_id'
     ];
 }

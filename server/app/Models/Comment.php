@@ -29,6 +29,7 @@ class Comment extends Model
         'updated_at',
         'created_at',
         'username',
-        'post_id'
+        'post_id',
+        'content'
     ];
 }

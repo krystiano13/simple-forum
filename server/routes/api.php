@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommentsCountController;
 use App\Http\Controllers\CountController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostsCountController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -21,3 +22,4 @@ Route::post('/login',[UserController::class, 'login']);
 Route::post('/logout',[UserController::class, 'logout']);
 Route::post('/incrementComments', [CommentsCountController::class, 'increment']);
 Route::post('/incrementPosts', [PostsCountController::class, 'increment']);
+Route::post('/addPost', [PostController::class, 'createPost']);

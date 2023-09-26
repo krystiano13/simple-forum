@@ -8,6 +8,37 @@ use Illuminate\Support\Facades\Validator;
 
 class NewsController extends Controller
 {
+    public function deleteNews($news_id, Request $request) {
+        $newsCount = News::where('id', $news_id) -> get() -> count();
+
+        if($newsCount <= 0) {
+            return response() -> json([
+                'status' => false,
+                'message' => 'no news to delete'
+            ]);
+        }
+
+        $fields = $request -> all();
+
+        $validator = Validator::make($fields,[
+            'username' => ['required']
+        ]);
+
+        if($validator -> fails()) {
+            return response() -> json([
+                'status' => false,
+                'message' => "Couldn't create news"
+            ]);
+        }
+
+        News::where('id',$news_id) -> delete();
+
+        return response() -> json([
+            'status' => true,
+            'message' => 'News deleted'
+        ],200);
+    }
+
     public function editNews($news_id, Request $request) {
         $newsCount = News::where('id', $news_id) -> get() -> count();
 

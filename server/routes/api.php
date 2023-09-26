@@ -27,6 +27,7 @@ Route::post('/addPost', [PostController::class, 'createPost']);
 Route::post('/addComment', [CommentController::class, 'createComment']);
 
 Route::put('/editComment/{comment_id}', [CommentController::class, 'editComment']);
+Route::put('/editPost/{post_id}', [PostController::class, 'editPost']);
 
 Route::delete('/deleteComment/{comment_id}', [CommentController::class, 'deleteComment']);
 Route::delete('/deletePost/{post_id}', [PostController::class, 'deletePost']);

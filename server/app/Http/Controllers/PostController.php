@@ -2,12 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
+    public function deletePost($post_id) {
+        $post = Post::where('id', $post_id) -> get();
+
+        if($post -> count() <= 0) {
+            return response() -> json([
+                'status' => false,
+                'message' => 'no post to delete'
+            ]);
+        }
+
+        Comment::where('post_id', $post_id) -> delete();
+        Post::where('id', $post_id) -> delete();
+
+        return response() -> json([
+            'status' => true,
+            'message' => 'Post deleted'
+        ],200);
+    }
+
     public function createPost(Request $request) {
         $fields = $request -> all();
 

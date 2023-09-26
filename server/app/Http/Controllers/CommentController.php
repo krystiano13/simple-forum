@@ -9,6 +9,24 @@ use Illuminate\Support\Facades\Validator;
 
 class CommentController extends Controller
 {
+    public function deleteComment($comment_id) {
+        $commentQuery = Comment::where('id',$comment_id) -> get();
+
+        if($commentQuery -> count() <= 0) {
+            return response() -> json([
+                'status' => false,
+                'message' => 'no comment to delete'
+            ]);
+        }
+
+        Comment::where('id',$comment_id) -> delete();
+
+        return response() -> json([
+            'status' => true,
+            'message' => 'Comment deleted'
+        ], 200);
+    }
+
     public function editComment($comment_id,Request $request) {
         $fields = $request -> all();  
 

@@ -25,3 +25,5 @@ Route::post('/incrementComments', [CommentsCountController::class, 'increment'])
 Route::post('/incrementPosts', [PostsCountController::class, 'increment']);
 Route::post('/addPost', [PostController::class, 'createPost']);
 Route::post('/addComment', [CommentController::class, 'createComment']);
+
+Route::put('/editComment/{comment_id}', [CommentController::class, 'editComment']);

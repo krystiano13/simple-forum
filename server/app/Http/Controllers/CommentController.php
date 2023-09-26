@@ -9,6 +9,43 @@ use Illuminate\Support\Facades\Validator;
 
 class CommentController extends Controller
 {
+    public function editComment($comment_id,Request $request) {
+        $fields = $request -> all();  
+
+        $validator = Validator::make($fields,[
+            'username' => ['required'],
+            'content' => ['required', 'min:3']
+        ]);
+
+        if($validator -> fails()) {
+            return response() -> json([
+                'status' => false,
+                'message' => "Validation Error",
+                "errors" => $validator -> errors()
+            ]);
+        }
+
+        $commentQuery = Comment::where('id',$comment_id) -> get();
+
+        if($commentQuery -> count() <= 0) {
+            return response() -> json([
+                'status' => false,
+                'message' => 'no comment to edit'
+            ]);
+        }
+
+        Comment::where('id', $comment_id) -> where('username', $fields['username']) -> update(
+            [
+                'content' => $fields['content']
+            ]
+        );
+
+        return response() -> json([
+            'status' => true,
+            'message' => 'Comment edited'
+        ], 200);
+    }
+
     public function createComment(Request $request) {
         $fields = $request -> all();
 

@@ -3,6 +3,7 @@
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CommentsCountController;
 use App\Http\Controllers\CountController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostsCountController;
 use App\Http\Controllers\UserController;
@@ -25,6 +26,7 @@ Route::post('/incrementComments', [CommentsCountController::class, 'increment'])
 Route::post('/incrementPosts', [PostsCountController::class, 'increment']);
 Route::post('/addPost', [PostController::class, 'createPost']);
 Route::post('/addComment', [CommentController::class, 'createComment']);
+Route::post('/createNews', [NewsController::class, 'createNews']);
 
 Route::put('/editComment/{comment_id}', [CommentController::class, 'editComment']);
 Route::put('/editPost/{post_id}', [PostController::class, 'editPost']);

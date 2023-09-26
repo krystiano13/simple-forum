@@ -24,7 +24,7 @@ class NewsController extends Controller
             ]);
         }
 
-        News::crete($fields);
+        News::create($fields);
 
         return response() -> json([
             'status' => true,

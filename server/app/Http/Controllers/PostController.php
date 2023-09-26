@@ -10,15 +10,6 @@ use Illuminate\Support\Facades\Validator;
 class PostController extends Controller
 {
     public function editPost($post_id, Request $request) {
-        $postQuery = Post::where('id', $post_id) -> get();
-
-        if($postQuery -> count() <= 0) {
-            return response() -> json([
-                'status' => false,
-                'message' => "no post to edit"
-            ]);
-        }
-
         $fields = $request -> all();
 
         $validator = Validator::make($fields,[
@@ -27,7 +18,7 @@ class PostController extends Controller
             'content' => ['required', 'min:3']
         ]);
 
-        if($validator->fails()) {
+        if($validator -> fails()) {
             return response() -> json(
                 [
                     "status" => false,
@@ -36,6 +27,16 @@ class PostController extends Controller
                 ]
             );
         }
+
+        $postQuery = Post::where('id', $post_id) -> where('username', $fields['username']) -> get();
+
+        if($postQuery -> count() <= 0) {
+            return response() -> json([
+                'status' => false,
+                'message' => "no post to edit"
+            ]);
+        }
+
 
         $fields['title'] = strip_tags($fields['title']);
         $fields['content'] = strip_tags($fields['content']);
@@ -51,8 +52,16 @@ class PostController extends Controller
         ], 200);
     }
 
-    public function deletePost($post_id) {
-        $post = Post::where('id', $post_id) -> get();
+    public function deletePost($post_id, Request $request) {
+        $fields = $request -> all();
+
+        $validator = Validator::make($fields,[ 'username' => 'required' ]);
+
+        if($validator -> fails()) {
+            return response() -> json(['status' => false, 'mesage' => 'Validation Error']);
+        }
+
+        $post = Post::where('id', $post_id) -> where('username', $fields['username']) -> get();
 
         if($post -> count() <= 0) {
             return response() -> json([

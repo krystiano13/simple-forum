@@ -9,8 +9,16 @@ use Illuminate\Support\Facades\Validator;
 
 class CommentController extends Controller
 {
-    public function deleteComment($comment_id) {
-        $commentQuery = Comment::where('id',$comment_id) -> get();
+    public function deleteComment($comment_id, Request $request) {
+        $fields = $request -> all();
+
+        $validator = Validator::make($fields,[ 'username' => 'required' ]);
+
+        if($validator -> fails()) {
+            return response() -> json(['status' => false, 'mesage' => 'Validation Error']);
+        }
+
+        $commentQuery = Comment::where('id',$comment_id) -> where('username', $fields['username']) -> get();
 
         if($commentQuery -> count() <= 0) {
             return response() -> json([
@@ -43,7 +51,7 @@ class CommentController extends Controller
             ]);
         }
 
-        $commentQuery = Comment::where('id',$comment_id) -> get();
+        $commentQuery = Comment::where('id',$comment_id) -> where('username', $fields['username']) -> get();
 
         if($commentQuery -> count() <= 0) {
             return response() -> json([

@@ -8,6 +8,42 @@ use Illuminate\Support\Facades\Validator;
 
 class NewsController extends Controller
 {
+    public function editNews($news_id, Request $request) {
+        $newsCount = News::where('id', $news_id) -> get() -> count();
+
+        if($newsCount <= 0) {
+            return response() -> json([
+                'status' => false,
+                'message' => 'no news to edit'
+            ]);
+        }
+
+        $fields = $request -> all();
+
+        $validator = Validator::make($fields,[
+            'title' => ['required'],
+            'content' => ['required', 'min:3'],
+            'username' => ['required']
+        ]);
+
+        if($validator -> fails()) {
+            return response() -> json([
+                'status' => false,
+                'message' => "Couldn't create news"
+            ]);
+        }
+
+        News::where('id', $news_id) -> update([
+            'title' => $fields['title'],
+            'content' => $fields['content'],
+        ]);
+
+        return response() -> json([
+            'status' => true,
+            'message' => 'News edited'
+        ],200);
+    }
+
     public function createNews(Request $request) {
         $fields = $request -> all();
 

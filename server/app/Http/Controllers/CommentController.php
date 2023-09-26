@@ -35,6 +35,8 @@ class CommentController extends Controller
             ]);
         }
 
+        $fields['content'] = strip_tags($fields['content']);
+
         Comment::create($fields);
 
         return response() -> json([

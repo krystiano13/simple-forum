@@ -7,6 +7,7 @@ $accent: #94ebfe;
 .best {
   height: auto;
   min-height: 20rem;
+  width : 100%;
 
   @media screen and (max-width: 992px) {
     .pl-6 {
@@ -17,6 +18,15 @@ $accent: #94ebfe;
 
 .best .panel {
   width: 50%;
+  border-radius: 1rem;
+
+  @media screen and (max-width: 992px) {
+    width: 90%;
+  }
+}
+
+.best .news {
+  width: 65%;
   border-radius: 1rem;
 
   @media screen and (max-width: 992px) {

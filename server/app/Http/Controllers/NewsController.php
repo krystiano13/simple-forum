@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\Validator;
 
 class NewsController extends Controller
 {
+    public function getNews() {
+        $latestNews = News::get() -> take(6);
+
+        return response() -> json([
+            'status' => true,
+            'news' => $latestNews
+        ], 200);
+    }
+
     public function deleteNews($news_id, Request $request) {
         $newsCount = News::where('id', $news_id) -> get() -> count();
 

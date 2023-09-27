@@ -5,6 +5,24 @@
 .jc-around { justify-content: space-around; }
 .jc-between { justify-content: space-between; }
 
+.js-center { justify-self: center; }
+.js-auto { justify-self: auto; }
+.js-baseline { justify-self: baseline; }
+.js-end { justify-self: end; }
+.js-first-baseline { justify-self: first baseline; }
+.js-flex-end { justify-self: flex-end; }
+.js-flex-start { justify-self: flex-start; }
+.js-last-baseline { justify-self: last baseline; }
+.js-left { justify-self: left; }
+.js-normal { justify-self: normal; }
+.js-right { justify-self: right; }
+.js-save { justify-self: save; }
+.js-self-end { justify-self: self-end; }
+.js-self-start { justify-self: self-start; }
+.js-start { justify-self: start; }
+.js-stretch { justify-self: stretch; }
+.js-unsave { justify-self: unsave; }
+
 .ac-start { align-content: flex-start; }
 .ac-center { align-content: center; }
 .ac-end { align-content: flex-end; }

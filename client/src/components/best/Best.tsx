@@ -6,7 +6,6 @@ import {
   useTask$,
 } from "@builder.io/qwik";
 import BestStyles from "./Best.css?inline";
-import { RequestHandler } from "@builder.io/qwik-city";
 import type { CountItem } from "~/routes/index@navbar";
 
 interface BestProps {

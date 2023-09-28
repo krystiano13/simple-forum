@@ -47,12 +47,17 @@ export default component$(() => {
           <div class="posts mt-2 bg-primary p-3">
             <div class="users mt-2">
               <div class="user">
-                <div class="block bg-secondary color p-2 m-1 br-1 w-50">
-                  <h2 class="font-head f-600 f-m">
+                <div class="block bg-secondary color p-2 br-1 width-50">
+                  <h2 class="m-1 font-head f-600 f-m">
                     {post.value.post?.username}
                   </h2>
-                  <p class="font-other f-400 f-xs">
+                  <p class="m-1 font-other f-400 f-xs">
                     created at: {post.value.post?.created_at}
+                  </p>
+                </div>
+                <div class="block bg-secondary color p-2 mt-1 br-1 width-100">
+                  <p class="m-1 font-other f-300 f-m">
+                    {post.value.post?.content}
                   </p>
                 </div>
               </div>
@@ -63,3 +68,4 @@ export default component$(() => {
     </div>
   );
 });
+

@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
+    public function getLatestPosts() {
+        $posts = Post::orderBy('id', 'DESC') -> get() -> take(10);
+
+        return response() -> json([
+            'status' => true,
+            'posts' => $posts
+        ],200);
+    }
+
     public function editPost($post_id, Request $request) {
         $fields = $request -> all();
 

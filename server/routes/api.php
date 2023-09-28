@@ -19,6 +19,7 @@ Route::get('/getCommentsCount', [CommentsCountController::class, 'getCount']);
 Route::get('/getPostCount', [PostsCountController::class, 'getCount']);
 Route::get('/getAllCounts', [CountController::class, 'getAllCount']);
 Route::get('/getNews',[NewsController::class, 'getNews']);
+Route::get('/getLatestPosts', [PostController::class, 'getLatestPosts']);
 
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login',[UserController::class, 'login']);

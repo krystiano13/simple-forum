@@ -2,6 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import { routeLoader$, type DocumentHead, type RequestHandler } from "@builder.io/qwik-city";
 import { Best } from "~/components/best/Best";
 import { News } from "~/components/news/News";
+import { Posts } from "~/components/posts/Posts";
 
 export interface CountItem {
   id: number;
@@ -32,7 +33,9 @@ export default component$(() => {
       <div class="block col-6 col-xxl-12">
         <News />
       </div>
-      <div class="col-12"></div>
+      <div class="block col-12">
+        <Posts />
+      </div>
     </div>
   );
 });

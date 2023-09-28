@@ -34,6 +34,15 @@ $accent: #94ebfe;
   }
 }
 
+.posts {
+  width : 90%;
+  border-radius: 1rem;
+
+  @media screen and (max-width: 992px) {
+    width: 90%;
+  }
+}
+
 .best .panel .buttons {
   width: 100%;
 

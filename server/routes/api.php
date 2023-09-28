@@ -20,6 +20,7 @@ Route::get('/getPostCount', [PostsCountController::class, 'getCount']);
 Route::get('/getAllCounts', [CountController::class, 'getAllCount']);
 Route::get('/getNews',[NewsController::class, 'getNews']);
 Route::get('/getLatestPosts', [PostController::class, 'getLatestPosts']);
+Route::get('/getOnePost/{post_id}', [PostController::class, 'getOnePost']);
 
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login',[UserController::class, 'login']);

@@ -9,6 +9,21 @@ use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
+    public function getOnePost($post_id) {
+       $post = Post::where('id', $post_id) -> first();
+       
+       if(Post::where('id', $post_id) -> get() -> count() <= 0) {
+            return response() -> json([
+                'status' => false,
+            ]);
+       }
+
+       return response() -> json([
+            'status' => true,
+            'post' => $post
+       ],200);
+    }
+
     public function getLatestPosts() {
         $posts = Post::orderBy('id', 'DESC') -> get() -> take(10);
 

@@ -29,6 +29,21 @@ export const News = component$(() => {
     const res = await fetch("http://127.0.0.1:8000/api/getNews");
     const data = await res.json();
 
+    (data as dataType).news.forEach(item => { 
+      const date: Date = new Date(item.created_at);
+      
+      const year: number = date.getFullYear();
+      const day: number = date.getUTCDate();
+      const month: number = date.getMonth() + 1;
+
+      let textMonth: string;
+
+      if (month < 10) textMonth = `0${month}`;
+      else textMonth = month.toString();
+
+      item.created_at = `${day} ${textMonth} ${year}`;
+    });
+
     return data as dataType;
   });
 

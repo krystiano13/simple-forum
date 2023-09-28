@@ -2,6 +2,8 @@ import {
   component$,
   useVisibleTask$,
   useStylesScoped$,
+  useResource$,
+  Resource,
 } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import BestStyles from "../../../components/best/Best.css?inline";
@@ -65,7 +67,16 @@ export default component$(() => {
           </div>
         </div>
       </div>
+      <div class="block col-12">
+        <div class="best flex jc-center flex-col pl-6">
+          <h2 class="f-xl font-head f-600 color text-left mt-6">Comments</h2>
+          <div class="posts mt-2 bg-primary p-3">
+            <div class="users mt-2">
+              <div class="user"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 });
-

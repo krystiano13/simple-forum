@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\Validator;
 
 class CommentController extends Controller
 {
+    public function getPostComments($post_id) {
+        $comments = Comment::orderBy('created_at', 'DESC') -> where('post_id', $post_id) -> get();
+
+        return response() -> json([
+            'status' => true,
+            'comments' => $comments
+        ], 200);
+    }
+
     public function deleteComment($comment_id, Request $request) {
         $fields = $request -> all();
 

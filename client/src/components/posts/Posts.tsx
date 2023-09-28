@@ -5,6 +5,7 @@ import {
   Resource,
 } from "@builder.io/qwik";
 import BestStyles from "../best/Best.css?inline";
+import { Spinner } from "../spinner/Spinner";
 
 type post = {
   id: number;
@@ -52,23 +53,24 @@ export const Posts = component$(() => {
           <div class="user">
             <Resource
               value={latestPostData}
-              onPending={() => <div>Loading ...</div>}
+              onPending={() => <Spinner />}
               onRejected={() => <div>Couldn't load news</div>}
-              onResolved={() => <></>}
+              onResolved={(data) => (
+                <>
+                  {data.posts.map((item) => (
+                    <div
+                      key={item.id}
+                      class="block bg-secondary color p-2 m-1 br-1"
+                    >
+                      <h2 class="m-1 font-head f-600 f-xl">{item.title}</h2>
+                      <p class="m-1 font-other f-400 f-m">
+                        <b>{item.username}</b> at {item.created_at}
+                      </p>
+                    </div>
+                  ))}
+                </>
+              )}
             />
-            {latestPostData.value.then((data) =>
-              data.posts.map((item) => (
-                <div
-                  key={item.id}
-                  class="block bg-secondary color p-2 m-1 br-1"
-                >
-                  <h2 class="m-1 font-head f-600 f-xl">{item.title}</h2>
-                  <p class="m-1 font-other f-400 f-m">
-                    <b>{item.username}</b> at {item.created_at}
-                  </p>
-                </div>
-              ))
-            )}
           </div>
         </div>
       </div>

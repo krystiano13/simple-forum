@@ -1,12 +1,11 @@
 import {
   component$,
   useStylesScoped$,
-  $,
-  useTask$,
   useResource$,
   Resource,
 } from "@builder.io/qwik";
 import BestStyles from "../best/Best.css?inline";
+import { Spinner } from "../spinner/Spinner";
 
 type newsType = {
   id: number;
@@ -29,9 +28,9 @@ export const News = component$(() => {
     const res = await fetch("http://127.0.0.1:8000/api/getNews");
     const data = await res.json();
 
-    (data as dataType).news.forEach(item => { 
+    (data as dataType).news.forEach((item) => {
       const date: Date = new Date(item.created_at);
-      
+
       const year: number = date.getFullYear();
       const day: number = date.getUTCDate();
       const month: number = date.getMonth() + 1;
@@ -55,20 +54,21 @@ export const News = component$(() => {
           <div class="user">
             <Resource
               value={useNews}
-              onPending={() => <div>Loading ...</div>}
+              onPending={() => <Spinner />}
               onRejected={() => <div>Couldn't load news</div>}
-              onResolved={() => <></>}
+              onResolved={(data) => (
+                <>
+                  {data.news.map((item) => (
+                    <div
+                      key={item.id}
+                      class="block bg-secondary color font-other f-400 p-2 m-1 br-1"
+                    >
+                      {item.created_at}: {item.title}
+                    </div>
+                  ))}
+                </>
+              )}
             />
-            {useNews.value.then((data) =>
-              data.news.map((item) => (
-                <div
-                  key={item.id}
-                  class="block bg-secondary color font-other f-400 p-2 m-1 br-1"
-                >
-                  {item.created_at}: {item.title}
-                </div>
-              ))
-            )}
           </div>
         </div>
       </div>

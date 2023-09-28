@@ -1,9 +1,7 @@
 import {
   component$,
   useSignal,
-  useStore,
   useStylesScoped$,
-  useTask$,
 } from "@builder.io/qwik";
 import BestStyles from "./Best.css?inline";
 import type { CountItem } from "~/routes/index@navbar";

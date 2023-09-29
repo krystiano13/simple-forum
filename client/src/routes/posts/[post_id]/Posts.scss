@@ -13,7 +13,15 @@ textarea {
 }
 
 #sendButton {
-    @media screen and (max-width : 992px) {
-        padding-left : 3rem;
-    }
+  transition: background-color 250ms, color 250ms;
+  will-change: background-color, color;
+
+  @media screen and (max-width: 992px) {
+    padding-left: 3rem;
+  }
+}
+
+#sendButton:hover {
+  background-color: #0288a7;
+  color: #d2f6ff;
 }

@@ -97,7 +97,8 @@ export default component$(() => {
             <br />
             <button
               id="sendButton"
-              class="c-pointer mt-1 font-head border-none color-secondary bg-accent f-600 f-s p-1 pr-6 pl-6"
+              class="border-bottom-3 border-solid border-color-primary 
+              c-pointer mt-1 font-head border-none color-secondary bg-accent f-600 f-s p-1 pr-6 pl-6"
             >
               Send
             </button>

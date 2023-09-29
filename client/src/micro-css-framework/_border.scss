@@ -1,3 +1,5 @@
+@import './_var_colors.scss';
+
 .border-none { border-style : none; }
 .border-solid { border-style: solid; }
 .border-dashed { border-style: dashed; }
@@ -10,3 +12,16 @@
 .border-outset { border-style: outset; }
 .border-ridge { border-style: ridge; }
 .border-unset { border-style: unset; }
+
+.border-1 { border-width: 1px; }
+.border-2 { border-width: 2px; }
+.border-3 { border-width: 3px; }
+.border-4 { border-width: 4px; }
+.border-5 { border-width: 5px; }
+.border-6 { border-width: 6px; }
+
+.border-primary { border-color: $primary; }
+.border-background { border-color: $background; }
+.border-secondary { border-color : $secondary; }
+.border-accent { border-color: $accent; }
+.border-text { border-color: $text; }

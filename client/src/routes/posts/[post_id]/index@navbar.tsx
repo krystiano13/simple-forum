@@ -7,6 +7,7 @@ import {
 } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import BestStyles from "../../../components/best/Best.css?inline";
+import PostsStyles from "./Posts.css?inline";
 import { Spinner } from "~/components/spinner/Spinner";
 
 interface dataInterface {
@@ -38,6 +39,7 @@ export const usePost = routeLoader$(async (requestEvent) => {
 export default component$(() => {
   const post = usePost();
   useStylesScoped$(BestStyles);
+  useStylesScoped$(PostsStyles);
 
   useVisibleTask$(() => {
     if (post.value.status === false) {
@@ -87,9 +89,18 @@ export default component$(() => {
         <div class="best flex jc-center flex-col pl-6">
           <h2 class="f-xl font-head f-600 color text-left mt-6">Comments</h2>
           <form>
-            <textarea name="content" placeholder="Write Your comment"></textarea>
+            <textarea
+              name="content"
+              placeholder="Write Your comment"
+              class="outline-none font-other p-1 mt-1 color bg-secondary br-1 f-400 f-s"
+            ></textarea>
             <br />
-            <button>Send</button>
+            <button
+              id="sendButton"
+              class="c-pointer mt-1 font-head border-none color-secondary bg-accent f-600 f-s p-1 pr-6 pl-6"
+            >
+              Send
+            </button>
           </form>
           <div class="posts mt-2 bg-primary p-3">
             <div class="users mt-2">

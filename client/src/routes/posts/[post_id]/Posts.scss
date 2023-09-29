@@ -1,0 +1,19 @@
+textarea {
+  max-width: 65%;
+  width: 65%;
+  max-height: 20rem;
+  min-height: 15rem;
+
+  @media screen and (max-width: 992px) {
+    max-width: 80%;
+    width: 80%;
+    max-height: 15rem;
+    min-height: 12rem;
+  }
+}
+
+#sendButton {
+    @media screen and (max-width : 992px) {
+        padding-left : 3rem;
+    }
+}

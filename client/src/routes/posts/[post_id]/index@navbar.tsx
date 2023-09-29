@@ -5,6 +5,7 @@ import {
   useResource$,
   Resource,
   useSignal,
+  $,
 } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import BestStyles from "../../../components/best/Best.css?inline";
@@ -41,8 +42,32 @@ export default component$(() => {
   const post = usePost();
   const loggedIn = useSignal<boolean>(false);
   const spinner = useSignal<boolean>(true);
+  const form = useSignal<HTMLFormElement>();
   useStylesScoped$(BestStyles);
   useStylesScoped$(PostsStyles);
+
+  const sendComment = $(async () => {
+    if (!localStorage.getItem("user") || !localStorage.getItem("token_id")) {
+      return;
+    }
+
+    const username: string = localStorage.getItem('user') as string;
+    const post_id: string = post.value.post?.id.toString() as string;
+    const formData = new FormData(form.value);
+    
+    formData.append("username", username);
+    formData.append("post_id", post_id);
+
+    console.log(formData.get('content'));
+
+    await fetch('http://127.0.0.1:8000/api/addComment', { method: "POST", body: formData })
+      .then(res => res.json())
+      .then(data => {
+        if (data.status) {
+          window.location.reload();
+        }
+      })
+  });
 
   useVisibleTask$(() => {
     if (post.value.status === false) {
@@ -102,7 +127,7 @@ export default component$(() => {
         <div class="best flex jc-center flex-col pl-6">
           <h2 class="f-xl font-head f-600 color text-left mt-6">Comments</h2>
           {loggedIn.value ? (
-            <form>
+            <form onSubmit$={sendComment} preventdefault:submit ref={form}>
               <textarea
                 name="content"
                 placeholder="Write Your comment"

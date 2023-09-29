@@ -4,6 +4,7 @@ import {
   useStylesScoped$,
   useResource$,
   Resource,
+  useSignal,
 } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import BestStyles from "../../../components/best/Best.css?inline";
@@ -38,12 +39,24 @@ export const usePost = routeLoader$(async (requestEvent) => {
 
 export default component$(() => {
   const post = usePost();
+  const loggedIn = useSignal<boolean>(false);
+  const spinner = useSignal<boolean>(true);
   useStylesScoped$(BestStyles);
   useStylesScoped$(PostsStyles);
 
   useVisibleTask$(() => {
     if (post.value.status === false) {
       window.location.href = "/";
+    }
+
+    if (
+      window.localStorage.getItem("user") &&
+      localStorage.getItem("token_id")
+    ) {
+      loggedIn.value = true;
+    } else {
+      loggedIn.value = false;
+      spinner.value = false;
     }
   });
 
@@ -88,21 +101,25 @@ export default component$(() => {
       <div class="block col-12">
         <div class="best flex jc-center flex-col pl-6">
           <h2 class="f-xl font-head f-600 color text-left mt-6">Comments</h2>
-          <form>
-            <textarea
-              name="content"
-              placeholder="Write Your comment"
-              class="outline-none font-other p-1 mt-1 color bg-secondary br-1 f-400 f-s"
-            ></textarea>
-            <br />
-            <button
-              id="sendButton"
-              class="border-bottom-3 border-solid border-color-primary 
+          {loggedIn.value ? (
+            <form>
+              <textarea
+                name="content"
+                placeholder="Write Your comment"
+                class="outline-none font-other p-1 mt-1 color bg-secondary br-1 f-400 f-s"
+              ></textarea>
+              <br />
+              <button
+                id="sendButton"
+                class="border-bottom-3 border-solid border-color-primary 
               c-pointer mt-1 font-head border-none color-secondary bg-accent f-600 f-s p-1 pr-6 pl-6"
-            >
-              Send
-            </button>
-          </form>
+              >
+                Send
+              </button>
+            </form>
+          ) : (
+            <> {spinner.value && <Spinner />} </>
+          )}
           <div class="posts mt-2 bg-primary p-3">
             <div class="users mt-2">
               <div class="user">

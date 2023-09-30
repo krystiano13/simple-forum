@@ -3,7 +3,7 @@ import {
   useStylesScoped$,
   useResource$,
   Resource,
-  $
+  $,
 } from "@builder.io/qwik";
 import BestStyles from "../best/Best.css?inline";
 import { Spinner } from "../spinner/Spinner";
@@ -53,6 +53,22 @@ export const Posts = component$(() => {
   return (
     <div class="best flex jc-center flex-col pl-6">
       <h2 class="f-xl font-head f-600 color text-left mt-6">Latest Posts:</h2>
+      <div class="posts mt-2 flex ai-center">
+        <button
+          class="p-1 pl-3 pr-3 f-600
+          font-head c-pointer bg-accent color-background
+          border-none border-bottom-3 border-bottom-solid border-bottom-primary"
+        >
+          Create new post
+        </button>
+        <button
+          class="ml-1 p-1 pl-3 pr-3 f-600
+        font-head c-pointer bg-accent color-background
+        border-none border-bottom-3 border-bottom-solid border-bottom-primary"
+        >
+          View all posts
+        </button>
+      </div>
       <div class="posts mt-2 bg-primary p-3">
         <div class="users mt-2">
           <div class="user">

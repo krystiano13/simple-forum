@@ -6,6 +6,7 @@ import {
   $,
 } from "@builder.io/qwik";
 import BestStyles from "../best/Best.css?inline";
+import PostsStyles from './Posts.css?inline';
 import { Spinner } from "../spinner/Spinner";
 
 type post = {
@@ -23,6 +24,7 @@ interface dataType {
 
 export const Posts = component$(() => {
   useStylesScoped$(BestStyles);
+  useStylesScoped$(PostsStyles);
 
   const latestPostData = useResource$<dataType>(async () => {
     const response = await fetch("http://127.0.0.1:8000/api/getLatestPosts");
@@ -50,6 +52,15 @@ export const Posts = component$(() => {
     window.location.href = `/posts/${postId}`;
   });
 
+  const createNewPost = $(() => {
+    if (
+      !window.localStorage.getItem("user") ||
+      !window.localStorage.getItem("token_id")
+    ) {
+      window.location.href = "/login";
+    }
+  });
+
   return (
     <div class="best flex jc-center flex-col pl-6">
       <h2 class="f-xl font-head f-600 color text-left mt-6">Latest Posts:</h2>
@@ -58,6 +69,7 @@ export const Posts = component$(() => {
           class="p-1 pl-3 pr-3 f-600
           font-head c-pointer bg-accent color-background
           border-none border-bottom-3 border-bottom-solid border-bottom-primary"
+          onClick$={createNewPost}
         >
           Create new post
         </button>

@@ -96,83 +96,87 @@ export default component$(() => {
   });
 
   return (
-    <div class="container container-xxl row jc-center ai-center">
-      <div class="block col-12">
-        <div class="best flex jc-center flex-col pl-6">
-          <h2 class="f-xl font-head f-600 color text-left mt-6">
-            {post.value.post?.title}
-          </h2>
-          <div class="posts mt-2 bg-primary p-3">
-            <div class="users mt-2">
-              <div class="user">
-                <div class="block bg-secondary color p-2 br-1 width-50">
-                  <h2 class="m-1 font-head f-600 f-m">
-                    {post.value.post?.username}
-                  </h2>
-                  <p class="m-1 font-other f-400 f-xs">
-                    created at: {post.value.post?.created_at}
-                  </p>
-                </div>
-                <div class="block bg-secondary color p-2 mt-1 br-1 width-100">
-                  <p class="m-1 font-other f-300 f-m">
-                    {post.value.post?.content}
-                  </p>
+    <>
+      <div class="container container-xxl row jc-center ai-center">
+        <div class="block col-12">
+          <div class="best flex jc-center flex-col pl-6">
+            <h2 class="f-xl font-head f-600 color text-left mt-6">
+              {post.value.post?.title}
+            </h2>
+            <div class="posts mt-2 bg-primary p-3">
+              <div class="users mt-2">
+                <div class="user">
+                  <div class="block bg-secondary color p-2 br-1 width-50">
+                    <h2 class="m-1 font-head f-600 f-m">
+                      {post.value.post?.username}
+                    </h2>
+                    <p class="m-1 font-other f-400 f-xs">
+                      created at: {post.value.post?.created_at}
+                    </p>
+                  </div>
+                  <div class="block bg-secondary color p-2 mt-1 br-1 width-100">
+                    <p class="m-1 font-other f-300 f-m">
+                      {post.value.post?.content}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="block col-12">
-        <div class="best flex jc-center flex-col pl-6">
-          <h2 class="f-xl font-head f-600 color text-left mt-6">Comments</h2>
-          {loggedIn.value ? (
-            <form onSubmit$={sendComment} preventdefault:submit ref={form}>
-              <textarea
-                name="content"
-                placeholder="Write Your comment"
-                class="outline-none font-other p-1 mt-1 color bg-secondary br-1 f-400 f-s"
-              ></textarea>
-              <br />
-              <button
-                id="sendButton"
-                class="border-bottom-3 border-solid border-color-primary 
+        <div class="block col-12">
+          <div class="best flex jc-center flex-col pl-6">
+            <h2 class="f-xl font-head f-600 color text-left mt-6">Comments</h2>
+            {loggedIn.value ? (
+              <form onSubmit$={sendComment} preventdefault:submit ref={form}>
+                <textarea
+                  name="content"
+                  placeholder="Write Your comment"
+                  class="outline-none font-other p-1 mt-1 color bg-secondary br-1 f-400 f-s"
+                ></textarea>
+                <br />
+                <button
+                  id="sendButton"
+                  class="border-bottom-3 border-solid border-color-primary 
               c-pointer mt-1 font-head border-none color-secondary bg-accent f-600 f-s p-1 pr-6 pl-6"
-              >
-                Send
-              </button>
-            </form>
-          ) : (
-            <> {spinner.value && <Spinner />} </>
-          )}
-          <div class="posts mt-2 bg-primary p-3">
-            <div class="users mt-2">
-              <div class="user">
-                <Resource
-                  value={resource}
-                  onPending={() => <Spinner />}
-                  onRejected={() => <div>Couldn't load news</div>}
-                  onResolved={(data) => (
-                    <>
-                      {data.comments?.map((item) => (
-                        <div class="block bg-secondary color p-2 mt-1 br-1 width-100">
-                          <h2 class="m-1 font-head f-600 f-m">
-                            {item.username}
-                          </h2>
-                          <p class="m-1 font-other f-400 f-xs">
-                            created at: {post.value.post?.created_at}
-                          </p>
-                          <p class="m-1 font-other f-300 f-m">{item.content}</p>
-                        </div>
-                      ))}
-                    </>
-                  )}
-                />
+                >
+                  Send
+                </button>
+              </form>
+            ) : (
+              <> {spinner.value && <Spinner />} </>
+            )}
+            <div class="posts mt-2 bg-primary p-3">
+              <div class="users mt-2">
+                <div class="user">
+                  <Resource
+                    value={resource}
+                    onPending={() => <Spinner />}
+                    onRejected={() => <div>Couldn't load news</div>}
+                    onResolved={(data) => (
+                      <>
+                        {data.comments?.map((item) => (
+                          <div class="block bg-secondary color p-2 mt-1 br-1 width-100">
+                            <h2 class="m-1 font-head f-600 f-m">
+                              {item.username}
+                            </h2>
+                            <p class="m-1 font-other f-400 f-xs">
+                              created at: {post.value.post?.created_at}
+                            </p>
+                            <p class="m-1 font-other f-300 f-m">
+                              {item.content}
+                            </p>
+                          </div>
+                        ))}
+                      </>
+                    )}
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 });

@@ -18,15 +18,32 @@ form {
     animation : formAppear 300ms ease-in-out;
 }
 
+.postCreateForm {
+    min-width : 32rem;
+
+    @media screen and (max-width : 992px) {
+        min-width : 25rem;
+    }
+}
+
 form > * { 
     box-sizing: border-box; 
     width : 90%;
+    max-width : 90%;
 }
 
-input {
+input, textarea {
     border: none;
     border-bottom: solid $accent 2px;
     outline : none;
+}
+
+textarea {
+    max-width : 90%;
+    min-width : 90%;
+    max-height : 20rem;
+    min-height : 15rem;
+    resize: none;
 }
 
 button {

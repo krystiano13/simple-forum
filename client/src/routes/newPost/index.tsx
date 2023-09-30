@@ -1,9 +1,15 @@
-import { component$, useStylesScoped$ } from "@builder.io/qwik";
+import { component$, useStylesScoped$, useVisibleTask$ } from "@builder.io/qwik";
 import LoginStyles from '../login/login.css?inline';
 
 export default component$(() => {
 
   useStylesScoped$(LoginStyles);
+
+  useVisibleTask$(() => { 
+    if (!localStorage.getItem("user") || !localStorage.getItem("token_id")) {
+      window.location.href = '/';
+    }
+  });
 
   return (
     <div class="formWrapper flex jc-center ai-center">

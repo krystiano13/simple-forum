@@ -59,6 +59,10 @@ export const Posts = component$(() => {
     ) {
       window.location.href = "/login";
     }
+
+    else {
+      window.location.href = '/newPost';
+    }
   });
 
   return (

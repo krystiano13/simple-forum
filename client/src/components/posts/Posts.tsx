@@ -3,6 +3,7 @@ import {
   useStylesScoped$,
   useResource$,
   Resource,
+  $
 } from "@builder.io/qwik";
 import BestStyles from "../best/Best.css?inline";
 import { Spinner } from "../spinner/Spinner";
@@ -45,6 +46,10 @@ export const Posts = component$(() => {
     return data as dataType;
   });
 
+  const redirectToPost = $((postId: number): void => {
+    window.location.href = `/posts/${postId}`;
+  });
+
   return (
     <div class="best flex jc-center flex-col pl-6">
       <h2 class="f-xl font-head f-600 color text-left mt-6">Latest Posts:</h2>
@@ -60,7 +65,8 @@ export const Posts = component$(() => {
                   {data.posts.map((item) => (
                     <div
                       key={item.id}
-                      class="block bg-secondary color p-2 m-1 br-1"
+                      class="block bg-secondary color p-2 m-1 br-1 c-pointer"
+                      onClick$={() => redirectToPost(item.id)}
                     >
                       <h2 class="m-1 font-head f-600 f-xl">{item.title}</h2>
                       <p class="m-1 font-other f-400 f-m">

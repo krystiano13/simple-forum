@@ -1,5 +1,10 @@
 @import './micro-css-framework/index.css';
 
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 *,
 *::before,
 *::after {

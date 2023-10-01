@@ -121,6 +121,20 @@ export default component$(() => {
                   </div>
                 </div>
               </div>
+              <button
+                id="sendButton"
+                class="border-bottom-3 border-bottom-solid border-color-primary 
+              c-pointer mt-1 font-head border-none color-secondary bg-accent f-600 f-s p-1 pr-6 pl-6"
+              >
+                Edit
+              </button>
+              <button
+                id="sendButton"
+                class="border-bottom-3 border-bottom-solid border-color-primary 
+              c-pointer mt-1 ml-1 font-head border-none color-secondary bg-accent f-600 f-s p-1 pr-6 pl-6"
+              >
+                Delete
+              </button>
             </div>
           </div>
         </div>

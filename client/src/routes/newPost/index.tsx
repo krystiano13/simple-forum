@@ -32,17 +32,18 @@ export default component$(() => {
           let title: string[] = [];
           let content: string[] = [];
 
-          if (data.status.content) {
-            content = [...data.status.content];
+          if (data.errors.content) {
+            content = [...data.errors.content];
           }
 
-          if (data.status.title) {
-            title = [...data.status.title];
+          if (data.errors.title) {
+            title = [...data.errors.title];
           }
 
           const err = [...title, ...content];
 
           errors.value = err;
+          console.log(errors.value);
         }
 
         spinner.value = false;

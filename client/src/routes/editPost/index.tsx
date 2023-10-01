@@ -73,7 +73,7 @@ export default component$(() => {
           onSubmit$={edit}
         >
           <h1 class="m-3 color text-center f-h1 f-600 font-head">
-            Create Post
+            Edit Post
           </h1>
           <input
             class="m-3 p-2 bg-secondary f-s color font-other"

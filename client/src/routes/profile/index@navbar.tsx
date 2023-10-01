@@ -32,6 +32,30 @@ export default component$(() => {
       });
   });
 
+  const getData = $(async () => {
+    await fetch(
+      `http://127.0.0.1:8000/api/getSinglePostsCount/${localStorage.getItem(
+        "user"
+      )}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        posts.value = data.result.count;
+      });
+
+    await fetch(
+      `http://127.0.0.1:8000/api/getSingleCommentsCount/${localStorage.getItem(
+        "user"
+      )}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        comments.value = data.result.count;
+      });
+  });
+
   useVisibleTask$(() => {
     if (!localStorage.getItem("user") || !localStorage.getItem("token_id")) {
       window.location.href = "/";
@@ -41,8 +65,8 @@ export default component$(() => {
         localStorage.getItem("token_id") as string
       );
       name.value = window.localStorage.getItem("user") as string;
+      getData();
     }
-
   });
 
   return (
@@ -53,7 +77,10 @@ export default component$(() => {
         <p class="m-2 font-other color f-m">Joined : {since.value}</p>
         <p class="m-2 font-other color f-m">Comments : {comments.value}</p>
         <p class="m-2 font-other color f-m">Posts : {posts.value}</p>
-        <button onClick$={logout} class="btn c-pointer m-2 bg-secondary color font-head p-1 pl-6 pr-6">
+        <button
+          onClick$={logout}
+          class="btn c-pointer m-2 bg-secondary color font-head p-1 pl-6 pr-6"
+        >
           Logout
         </button>
       </div>

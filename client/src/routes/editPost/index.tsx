@@ -16,11 +16,30 @@ export default component$(() => {
   const titleInput = useSignal<HTMLInputElement>();
   const contentInput = useSignal<HTMLTextAreaElement>();
 
-  const title = useSignal<string>('');
-  const content = useSignal<string>('');
-  const post_id = useSignal<string>('');
+  const title = useSignal<string>("");
+  const content = useSignal<string>("");
+  const post_id = useSignal<string>("");
 
   useStylesScoped$(LoginStyles);
+
+  const edit = $(async () => {
+    const formData = new FormData(form.value);
+    formData.append("username", localStorage.getItem("user") as string);
+
+    await fetch(`http://127.0.0.1:8000/api/editPost/${post_id.value}`, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (!data.status) {
+          alert(data.message);
+          return;
+        }
+
+        window.location.href = `/posts/${post_id.value}`;
+      });
+  });
 
   useVisibleTask$(() => {
     if (
@@ -33,15 +52,13 @@ export default component$(() => {
       window.location.href = "/";
     }
 
-    title.value = localStorage.getItem('title') as string;
-    content.value = localStorage.getItem('content') as string;
-    post_id.value = localStorage.getItem('post_id') as string;
+    title.value = localStorage.getItem("title") as string;
+    content.value = localStorage.getItem("content") as string;
+    post_id.value = localStorage.getItem("post_id") as string;
 
-    if (titleInput.value)
-      titleInput.value.value = title.value;
+    if (titleInput.value) titleInput.value.value = title.value;
 
-    if (contentInput.value)
-      contentInput.value.value = content.value;
+    if (contentInput.value) contentInput.value.value = content.value;
   });
 
   return (
@@ -53,6 +70,7 @@ export default component$(() => {
           ref={form}
           preventdefault:submit
           class="postCreateForm flex flex-col jc-center ai-center p-4 pt-8 pb-8 bg-primary"
+          onSubmit$={edit}
         >
           <h1 class="m-3 color text-center f-h1 f-600 font-head">
             Create Post
@@ -74,7 +92,7 @@ export default component$(() => {
             class="m-3 p-2 bg-accent color-bg f-600 f-s font-head"
             type="submit"
           >
-            Create
+            Edit
           </button>
           {errors.value.map((item) => (
             <p class="text-center font-head color f-500 f-xs">{item}</p>

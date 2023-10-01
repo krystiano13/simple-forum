@@ -33,7 +33,7 @@ Route::post('/addComment', [CommentController::class, 'createComment']);
 Route::post('/createNews', [NewsController::class, 'createNews']);
 
 Route::put('/editComment/{comment_id}', [CommentController::class, 'editComment']);
-Route::put('/editPost/{post_id}', [PostController::class, 'editPost']);
+Route::post('/editPost/{post_id}', [PostController::class, 'editPost']);
 Route::put('/editNews/{news_id}', [NewsController::class, 'editNews']);
 
 Route::delete('/deleteComment/{comment_id}', [CommentController::class, 'deleteComment']);

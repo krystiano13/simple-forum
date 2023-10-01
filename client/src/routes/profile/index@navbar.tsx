@@ -40,7 +40,9 @@ export default component$(() => {
         "token_id",
         localStorage.getItem("token_id") as string
       );
+      name.value = window.localStorage.getItem("user") as string;
     }
+
   });
 
   return (

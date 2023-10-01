@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Validator;
 
 class CommentsCountController extends Controller
 {
+    public function getSingleCount(string $username) {
+        $count = CommentsCount::where('username', $username) -> first();
+        return response() -> json(['status' => true, 'result' => $count]);
+    }
+
     public function getCount(Request $request) {
         return response() -> json(
             CommentsCount::orderBy('count', 'DESC') -> take(6) -> get()

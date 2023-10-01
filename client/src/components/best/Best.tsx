@@ -18,7 +18,7 @@ export const Best = component$((props: BestProps) => {
   const posts = useSignal([]);
 
   return (
-    <div class="best flex jc-center flex-col pl-6">
+    <div class="best flex jc-start flex-col pl-6">
       <h2 class="f-xl font-head f-600 color text-left mt-6">Best Users:</h2>
       <div class="panel mt-2 bg-primary p-3">
         <div class="buttons flex">
@@ -76,6 +76,7 @@ export const Best = component$((props: BestProps) => {
                 )}
               </>
             )}
+            
           </div>
         </div>
       </div>

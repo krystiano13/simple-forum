@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+    public function getJoinTime($username) {
+        $result = User::where('name', $username) -> first();
+
+        return response() -> json([
+            'status' => true,
+            'result' => $result
+        ], 200);
+    }
+
     public function logout(Request $request) {
         $fields = $request -> all();
         $validator = Validator::make($fields,[ 'token_id' => 'required' ]);

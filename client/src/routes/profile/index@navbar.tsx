@@ -40,7 +40,6 @@ export default component$(() => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         posts.value = data.result.count;
       });
 
@@ -51,7 +50,6 @@ export default component$(() => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         comments.value = data.result.count;
       });
   });

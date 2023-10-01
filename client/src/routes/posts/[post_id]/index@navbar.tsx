@@ -47,6 +47,19 @@ export default component$(() => {
   useStylesScoped$(BestStyles);
   useStylesScoped$(PostsStyles);
 
+  const deletePost = $(async () => {
+    const formData = new FormData();
+    formData.append('username', localStorage.getItem("user") as string);
+    await fetch(`http://127.0.0.1:8000/api/deletePost/${post.value.post?.id}`, { method: "POST", body: formData })
+      .then(res => res.json())
+      .then(data => {
+        console.log(localStorage.getItem("user") as string);
+        console.log(data);
+        if (!data.status) return;
+        window.location.href = '/';
+      })
+  });
+
   const sendComment = $(async () => {
     if (!localStorage.getItem("user") || !localStorage.getItem("token_id")) {
       return;
@@ -140,6 +153,7 @@ export default component$(() => {
                     Edit
                   </button>
                   <button
+                    onClick$={deletePost}
                     id="sendButton"
                     class="border-bottom-3 border-bottom-solid border-color-primary 
               c-pointer mt-1 ml-1 font-head border-none color-secondary bg-accent f-600 f-s p-1 pr-6 pl-6"

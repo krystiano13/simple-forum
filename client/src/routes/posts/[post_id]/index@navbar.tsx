@@ -48,11 +48,11 @@ export default component$(() => {
   useStylesScoped$(PostsStyles);
 
   const editPost = $(() => {
-    localStorage.setItem('post_id', post.value.post?.id.toString() as string);
-    localStorage.setItem('title', post.value.post?.title as string);
-    localStorage.setItem('content', post.value.post?.content as string);
+    localStorage.setItem("post_id", post.value.post?.id.toString() as string);
+    localStorage.setItem("title", post.value.post?.title as string);
+    localStorage.setItem("content", post.value.post?.content as string);
 
-    window.location.href = '/editPost';
+    window.location.href = "/editPost";
   });
 
   const deletePost = $(async () => {
@@ -92,7 +92,12 @@ export default component$(() => {
       .then((res) => res.json())
       .then((data) => {
         if (data.status) {
-          window.location.reload();
+          fetch("http://127.0.0.1:8000/api/incrementComments", {
+            method: "POST",
+            body: formData,
+          }).then(() => {
+            window.location.reload();
+          });
         }
       });
   });

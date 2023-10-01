@@ -27,7 +27,12 @@ export default component$(() => {
       .then((res) => res.json())
       .then((data) => {
         if (data.status) {
-          window.location.href = "/";
+          fetch("http://127.0.0.1:8000/api/incrementPosts", {
+            method: "POST",
+            body: formData,
+          }).then(() => {
+            window.location.href = "/";
+          });
         } else {
           let title: string[] = [];
           let content: string[] = [];

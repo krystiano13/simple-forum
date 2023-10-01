@@ -11,7 +11,7 @@ class CommentsCountController extends Controller
 {
     public function getSingleCount(string $username) {
         $count = CommentsCount::where('username', $username) -> first();
-        return response() -> json(['status' => true, 'result' => $count]);
+        return response() -> json(['status' => true, 'result' => $count], 200);
     }
 
     public function getCount(Request $request) {

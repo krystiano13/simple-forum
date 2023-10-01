@@ -23,6 +23,7 @@ Route::get('/getLatestPosts', [PostController::class, 'getLatestPosts']);
 Route::get('/getOnePost/{post_id}', [PostController::class, 'getOnePost']);
 Route::get('/getPostComments/{post_id}', [CommentController::class, 'getPostComments']);
 Route::get('/getSingleCommentsCount/{username}', [CommentsCountController::class, 'getSingleCount']);
+Route::get('/getSinglePostsCount/{username}', [PostsCountController::class, 'getSingleCount']);
 
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login',[UserController::class, 'login']);

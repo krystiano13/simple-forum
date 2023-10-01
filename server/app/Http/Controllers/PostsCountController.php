@@ -9,6 +9,14 @@ use App\Models\User;
 
 class PostsCountController extends Controller
 {
+    public function getSingleCount($username) {
+        $result = PostCount::where('username', $username) -> first();
+        return response() -> json([
+            'status' => true,
+            'result' => $result
+        ], 200);
+    }
+
     public function getCount(Request $request) {
         return response() -> json(
             PostCount::orderBy('count', 'DESC') -> take(6) -> get()

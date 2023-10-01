@@ -43,6 +43,7 @@ export default component$(() => {
   const loggedIn = useSignal<boolean>(false);
   const spinner = useSignal<boolean>(true);
   const form = useSignal<HTMLFormElement>();
+  const isUserOwner = useSignal<boolean>(false);
   useStylesScoped$(BestStyles);
   useStylesScoped$(PostsStyles);
 
@@ -51,22 +52,25 @@ export default component$(() => {
       return;
     }
 
-    const username: string = localStorage.getItem('user') as string;
+    const username: string = localStorage.getItem("user") as string;
     const post_id: string = post.value.post?.id.toString() as string;
     const formData = new FormData(form.value);
-    
+
     formData.append("username", username);
     formData.append("post_id", post_id);
 
-    console.log(formData.get('content'));
+    console.log(formData.get("content"));
 
-    await fetch('http://127.0.0.1:8000/api/addComment', { method: "POST", body: formData })
-      .then(res => res.json())
-      .then(data => {
+    await fetch("http://127.0.0.1:8000/api/addComment", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
         if (data.status) {
           window.location.reload();
         }
-      })
+      });
   });
 
   useVisibleTask$(() => {
@@ -79,6 +83,10 @@ export default component$(() => {
       localStorage.getItem("token_id")
     ) {
       loggedIn.value = true;
+
+      if (post.value.post?.username === localStorage.getItem("user")) {
+        isUserOwner.value = true;
+      }
     } else {
       loggedIn.value = false;
       spinner.value = false;
@@ -121,20 +129,25 @@ export default component$(() => {
                   </div>
                 </div>
               </div>
-              <button
-                id="sendButton"
-                class="border-bottom-3 border-bottom-solid border-color-primary 
+              {isUserOwner.value && (
+                <>
+                  {" "}
+                  <button
+                    id="sendButton"
+                    class="border-bottom-3 border-bottom-solid border-color-primary 
               c-pointer mt-1 font-head border-none color-secondary bg-accent f-600 f-s p-1 pr-6 pl-6"
-              >
-                Edit
-              </button>
-              <button
-                id="sendButton"
-                class="border-bottom-3 border-bottom-solid border-color-primary 
+                  >
+                    Edit
+                  </button>
+                  <button
+                    id="sendButton"
+                    class="border-bottom-3 border-bottom-solid border-color-primary 
               c-pointer mt-1 ml-1 font-head border-none color-secondary bg-accent f-600 f-s p-1 pr-6 pl-6"
-              >
-                Delete
-              </button>
+                  >
+                    Delete
+                  </button>{" "}
+                </>
+              )}
             </div>
           </div>
         </div>

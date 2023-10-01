@@ -47,17 +47,28 @@ export default component$(() => {
   useStylesScoped$(BestStyles);
   useStylesScoped$(PostsStyles);
 
+  const editPost = $(() => {
+    localStorage.setItem('post_id', post.value.post?.id.toString() as string);
+    localStorage.setItem('title', post.value.post?.title as string);
+    localStorage.setItem('content', post.value.post?.content as string);
+
+    window.location.href = '/editPost';
+  });
+
   const deletePost = $(async () => {
     const formData = new FormData();
-    formData.append('username', localStorage.getItem("user") as string);
-    await fetch(`http://127.0.0.1:8000/api/deletePost/${post.value.post?.id}`, { method: "POST", body: formData })
-      .then(res => res.json())
-      .then(data => {
+    formData.append("username", localStorage.getItem("user") as string);
+    await fetch(`http://127.0.0.1:8000/api/deletePost/${post.value.post?.id}`, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
         console.log(localStorage.getItem("user") as string);
         console.log(data);
         if (!data.status) return;
-        window.location.href = '/';
-      })
+        window.location.href = "/";
+      });
   });
 
   const sendComment = $(async () => {
@@ -146,6 +157,7 @@ export default component$(() => {
                 <>
                   {" "}
                   <button
+                    onClick$={editPost}
                     id="sendButton"
                     class="border-bottom-3 border-bottom-solid border-color-primary 
               c-pointer mt-1 font-head border-none color-secondary bg-accent f-600 f-s p-1 pr-6 pl-6"

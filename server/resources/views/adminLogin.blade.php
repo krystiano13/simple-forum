@@ -16,6 +16,11 @@
       border-bottom-solid border-bottom-secondary
       f-600 f-s" 
       type="submit">Log In</button>
+      @if($errors -> any())
+        @foreach ($errors as $error)
+         <p>{{ $error }}</p>
+        @endforeach
+      @endif
     </form>
   </main>
 @endsection

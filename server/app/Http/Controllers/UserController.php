@@ -33,6 +33,10 @@ class UserController extends Controller
         ])) {
             return redirect('/adminForm');
         }
+
+        else {
+            return redirect('/adminLoginView') -> withErrors(['password' => 'Wrong admin password']);
+        }
     }
 
     public function getJoinTime($username) {

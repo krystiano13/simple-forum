@@ -34,7 +34,7 @@ class NewsController extends Controller
             return response() -> json([
                 'status' => false,
                 'message' => 'no news to delete'
-            ]);
+            ],200);
         }
 
         $fields = $request -> all();
@@ -47,7 +47,7 @@ class NewsController extends Controller
             return response() -> json([
                 'status' => false,
                 'message' => "Couldn't create news"
-            ]);
+            ],200);
         }
 
         News::where('id',$news_id) -> delete();

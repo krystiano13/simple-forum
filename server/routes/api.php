@@ -42,4 +42,4 @@ Route::post('/editNews/{news_id}', [NewsController::class, 'editNews']);
 
 Route::delete('/deleteComment/{comment_id}', [CommentController::class, 'deleteComment']);
 Route::post('/deletePost/{post_id}', [PostController::class, 'deletePost']);
-Route::delete('/deleteNews/{news_id}', [NewsController::class, 'deleteNews']);
+Route::post('/deleteNews/{news_id}', [NewsController::class, 'deleteNews']);

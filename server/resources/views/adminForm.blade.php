@@ -25,10 +25,14 @@
         <section id="newsSection" class="col-6 col-xxl-12 flex flex-col jc-center ai-center">
             @if(isset($news))
                 @foreach($news as $item)
-                    <div id="{{ $item['id'] }}" 
-                    class="news m-1 p-2 pr-5 pl-5 bg-primary br-1 c-pointer color font-head
+                    <div " 
+                    class="flex m-1 p-2 pr-5 pl-5 bg-primary br-1 c-pointer color font-head
                     f-m">
-                        {{ $item['created_at'] }}__{{ $item['title'] }}
+                        <p class="news" 
+                            id="{{ $item['id'] }}">
+                            {{ $item['created_at'] }}__{{ $item['title'] }}
+                        </p>
+                        <button id="{{ $item['id'] }}" class="delete ml-2 c-pointer">Delete</button>                       
                     </div>
                 @endforeach
             @endif 
@@ -38,12 +42,13 @@
         form input, form textarea, form button {
             max-width : 15rem;
         }
-        .news {
-            max-width : 50%;
-        }
 
         #newsSection {
             overflow-y: auto; 
+        }
+
+        .delete {
+            z-index : 1000;
         }
     </style>
 @endsection

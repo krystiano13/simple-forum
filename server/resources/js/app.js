@@ -4,10 +4,32 @@ if (window.location.href === "http://127.0.0.1:8000/adminForm") {
     const form = document.querySelectorAll("form");
     const news = document.querySelectorAll(".news");
     const modeButton = document.querySelector("#mode");
+    const deleteButtons = document.querySelectorAll(".delete");
 
     let mode = "add";
 
     let targetID = null;
+
+    deleteButtons.forEach((item) => {
+        item.addEventListener("click", async (e) => {
+            const id = e.target.id;
+            const formData = new FormData(form[0]);
+            formData.append('username', 'admin');
+
+            const res = await fetch(`http://127.0.0.1:8000/api/deleteNews/${id}`,
+                { method: "POST", body: formData })
+              
+            const data = await res.json();
+
+            if (data.status) {
+                window.location.reload();
+            }
+
+            else {
+                alert('Error while deleting')
+            }
+        });
+    });
 
     modeButton.addEventListener("click", () => {
         if (mode === "add") {

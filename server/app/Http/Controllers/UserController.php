@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\News;
 use App\Models\User;
 use App\Models\Token;
 use Illuminate\Http\Request;
@@ -19,7 +20,9 @@ class UserController extends Controller
             return redirect('/adminLoginView');
         }
 
-        return view('adminForm');
+        $news = News::get();
+
+        return view('adminForm') -> with('news', $news);
     }
 
     public function attemptAdminLogin(Request $request) {

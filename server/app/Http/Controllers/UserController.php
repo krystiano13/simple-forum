@@ -9,6 +9,32 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+    public function adminLogout() {
+        auth() -> logout();
+        return redirect('/adminLoginView');
+    }
+
+    public function adminForm() {
+        if(!auth() -> check()) {
+            return redirect('/adminLoginView');
+        }
+
+        return view('adminForm');
+    }
+
+    public function attemptAdminLogin(Request $request) {
+        $fields = $request -> validate([
+            'password' => ['required']
+        ]);
+
+        if(auth() -> attempt([
+            'name' => 'admin',
+            'password' => $fields['password']
+        ])) {
+            return redirect('/adminForm');
+        }
+    }
+
     public function getJoinTime($username) {
         $result = User::where('name', $username) -> first();
 

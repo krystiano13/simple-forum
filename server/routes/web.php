@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\UserController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +21,7 @@ Route::get('/', function () {
 });
 
 Route::get('/adminLoginView', [NewsController::class, 'adminLoginView']);
+Route::get('/adminForm', [UserController::class, 'adminForm']);
+
+Route::post('/attemptAdminLogin', [UserController::class, 'attemptAdminLogin']);
+Route::post('/adminLogout', [UserController::class, 'adminLogout']);

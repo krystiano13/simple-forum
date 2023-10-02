@@ -10,7 +10,7 @@
             </form> 
             <form class="flex flex-col jc-center ai-center" action="">
                 @csrf
-                <input class="mt-2" type="text" name="title" placeholder="Title" />
+                <input id="title" class="mt-2" type="text" name="title" placeholder="Title" />
                 <textarea class="mt-2" placeholder="content" name="content"></textarea>
                 <button class="mt-2" type="submit">Create</button>
             </form>

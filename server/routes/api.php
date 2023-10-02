@@ -25,6 +25,7 @@ Route::get('/getPostComments/{post_id}', [CommentController::class, 'getPostComm
 Route::get('/getSingleCommentsCount/{username}', [CommentsCountController::class, 'getSingleCount']);
 Route::get('/getSinglePostsCount/{username}', [PostsCountController::class, 'getSingleCount']);
 Route::get('/getJoinTime/{username}', [UserController::class,'getJoinTime']);
+Route::get('/getSingleNews/{id}', [NewsController::class, 'getSingleNews']);
 
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login',[UserController::class, 'login']);
@@ -37,7 +38,7 @@ Route::post('/createNews', [NewsController::class, 'createNews']);
 
 Route::put('/editComment/{comment_id}', [CommentController::class, 'editComment']);
 Route::post('/editPost/{post_id}', [PostController::class, 'editPost']);
-Route::put('/editNews/{news_id}', [NewsController::class, 'editNews']);
+Route::post('/editNews/{news_id}', [NewsController::class, 'editNews']);
 
 Route::delete('/deleteComment/{comment_id}', [CommentController::class, 'deleteComment']);
 Route::post('/deletePost/{post_id}', [PostController::class, 'deletePost']);

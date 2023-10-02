@@ -8,7 +8,11 @@ use Illuminate\Support\Facades\Validator;
 
 class NewsController extends Controller
 {
+    public function getSingleNews($id) {
+        $item = News::where('id', $id) -> first();
 
+        return response() -> json(['status' => true, 'item' => $item], 200);
+    }
 
     public function adminLoginView() {
         return view('adminLogin');

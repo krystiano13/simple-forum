@@ -1,8 +1,8 @@
 $accent: #94ebfe;
 
 .profile {
-    border-top: solid $accent 0.25rem;
-    animation: appear 350ms ease-in-out;
+  border-top: solid $accent 0.25rem;
+  animation: appear 350ms ease-in-out;
 }
 
 .avatar {
@@ -17,21 +17,21 @@ $accent: #94ebfe;
 }
 
 .btn:hover {
-    background-color: #064250;
+  background-color: #064250;
 }
 
-.btn:active { 
-    border: none;
+.btn:active {
+  border: none;
 }
 
 @keyframes appear {
-    from {
-        opacity : 0;
-        transform : scale(0) translateY(200px);
-    }
+  from {
+    opacity: 0;
+    transform: scale(0) translateY(200px);
+  }
 
-    to {
-        opacity : 1;
-        transform: scale(1) translateY(0px);
-    }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+  }
 }

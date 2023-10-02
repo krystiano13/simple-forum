@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Validator;
 
 class NewsController extends Controller
 {
+    public function adminLoginView() {
+        return view('adminLogin');
+    }
+
     public function getNews() {
         $latestNews = News::orderBy('id', 'DESC') -> get() -> take(6);
 

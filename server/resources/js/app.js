@@ -3,10 +3,22 @@ import "./bootstrap";
 if (window.location.href === "http://127.0.0.1:8000/adminForm") {
     const form = document.querySelectorAll("form");
     const news = document.querySelectorAll(".news");
+    const modeButton = document.querySelector("#mode");
 
     let mode = "add";
 
-    let targetID;
+    let targetID = null;
+
+    modeButton.addEventListener("click", () => {
+        if (mode === "add") {
+            if (targetID) mode = "edit";
+            else alert("Select news to edit first");
+        } else {
+            mode = "add";
+        }
+
+        modeButton.innerHTML = `mode: ${mode}`;
+    });
 
     news.forEach((item) => {
         item.addEventListener("click", async (e) => {

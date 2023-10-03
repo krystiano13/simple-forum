@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
+    public function getAllPosts() {
+        $posts = Post::get();
+
+        return response() -> json([
+            'status' => true,
+            'result' => $posts
+        ], 200);
+    }
+
     public function getOnePost($post_id) {
        $post = Post::where('id', $post_id) -> first();
        

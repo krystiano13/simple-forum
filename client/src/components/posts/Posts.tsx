@@ -23,7 +23,7 @@ interface dataType {
 }
 
 interface PostsProps {
-  mode: string
+  mode: string;
 }
 
 export const Posts = component$((props: PostsProps) => {
@@ -31,7 +31,17 @@ export const Posts = component$((props: PostsProps) => {
   useStylesScoped$(PostsStyles);
 
   const latestPostData = useResource$<dataType>(async () => {
-    const response = await fetch("http://127.0.0.1:8000/api/getLatestPosts");
+    let url: string;
+
+    if (props.mode === "partial") {
+      url = await "http://127.0.0.1:8000/api/getLatestPosts";
+    }
+
+    else {
+      url = await "http://127.0.0.1:8000/api/getLatestPosts";
+    }
+
+    const response = await fetch(url);
     const data = await response.json();
 
     (data as dataType).posts.forEach((item) => {
@@ -62,11 +72,13 @@ export const Posts = component$((props: PostsProps) => {
       !window.localStorage.getItem("token_id")
     ) {
       window.location.href = "/login";
+    } else {
+      window.location.href = "/newPost";
     }
+  });
 
-    else {
-      window.location.href = '/newPost';
-    }
+  const viewAllPosts = $(() => {
+    window.location.href = "/allPosts";
   });
 
   return (
@@ -86,6 +98,7 @@ export const Posts = component$((props: PostsProps) => {
             class="ml-1 p-1 pl-3 pr-3 f-600
         font-head c-pointer bg-accent color-background
         border-none border-bottom-3 border-bottom-solid border-bottom-primary"
+            onClick$={() => viewAllPosts()}
           >
             View all posts
           </button>

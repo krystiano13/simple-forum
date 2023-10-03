@@ -35,10 +35,8 @@ export const Posts = component$((props: PostsProps) => {
 
     if (props.mode === "partial") {
       url = await "http://127.0.0.1:8000/api/getLatestPosts";
-    }
-
-    else {
-      url = await "http://127.0.0.1:8000/api/getLatestPosts";
+    } else {
+      url = await "http://127.0.0.1:8000/api/getAllPosts";
     }
 
     const response = await fetch(url);
@@ -94,14 +92,16 @@ export const Posts = component$((props: PostsProps) => {
           >
             Create new post
           </button>
-          <button
-            class="ml-1 p-1 pl-3 pr-3 f-600
-        font-head c-pointer bg-accent color-background
-        border-none border-bottom-3 border-bottom-solid border-bottom-primary"
-            onClick$={() => viewAllPosts()}
-          >
-            View all posts
-          </button>
+          {props.mode === "partial" && (
+            <button
+              class="ml-1 p-1 pl-3 pr-3 f-600
+              font-head c-pointer bg-accent color-background
+              border-none border-bottom-3 border-bottom-solid border-bottom-primary"
+              onClick$={() => viewAllPosts()}
+            >
+              View all posts
+            </button>
+          )}
         </div>
         <div class="posts mt-2 bg-primary p-3">
           <div class="users mt-2">

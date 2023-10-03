@@ -82,7 +82,9 @@ export const Posts = component$((props: PostsProps) => {
   return (
     <>
       <div class="best flex jc-center flex-col pl-6">
-        <h2 class="f-xl font-head f-600 color text-left mt-6">Latest Posts:</h2>
+        <h2 class="f-xl font-head f-600 color text-left mt-6">
+          {props.mode === "all" ? "All" : "Latest"} Posts:
+        </h2>
         <div class="posts mt-2 flex ai-center">
           <button
             class="p-1 pl-3 pr-3 f-600

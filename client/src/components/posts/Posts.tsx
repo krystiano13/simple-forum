@@ -22,7 +22,11 @@ interface dataType {
   posts: post[];
 }
 
-export const Posts = component$(() => {
+interface PostsProps {
+  mode: string
+}
+
+export const Posts = component$((props: PostsProps) => {
   useStylesScoped$(BestStyles);
   useStylesScoped$(PostsStyles);
 

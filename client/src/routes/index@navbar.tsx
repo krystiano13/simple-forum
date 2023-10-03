@@ -34,7 +34,7 @@ export default component$(() => {
         <News />
       </div>
       <div class="block col-12">
-        <Posts />
+        <Posts mode="partial" />
       </div>
     </div>
   );

@@ -13,17 +13,10 @@ export const Navbar = component$(() => {
   const user = useSignal("Admin");
   const searchInput = useSignal<HTMLInputElement>();
 
-  const search = $(async () => {
+  const search = $(() => {
     if (!searchInput.value) return;
-    const phrase = await searchInput.value.value;
-    await fetch(`http://127.0.0.1:8000/api/findPosts/${phrase}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status) {
-          localStorage.setItem("phrase", phrase);
-          window.location.href = "/allPosts";
-        }
-      });
+    const phrase = searchInput.value.value;
+    window.location.href = `/allPosts/${phrase}`;
   });
 
   useStylesScoped$(NavbarStyles);

@@ -17,14 +17,14 @@ type post = {
   content: string;
 };
 
-interface dataType {
+export interface dataType {
   status: boolean;
   posts: post[];
 }
 
 interface PostsProps {
   mode: string;
-  phrase: string;
+  allData?: dataType
 }
 
 export const Posts = component$((props: PostsProps) => {
@@ -32,15 +32,7 @@ export const Posts = component$((props: PostsProps) => {
   useStylesScoped$(PostsStyles);
 
   const latestPostData = useResource$<dataType>(async () => {
-    let url: string;
-
-    if (props.mode === "partial") {
-      url = await "http://127.0.0.1:8000/api/getLatestPosts";
-    } else { 
-      url = await `http://127.0.0.1:8000/api/findPosts/${props.phrase}`;
-    }
-
-    const response = await fetch(url);
+    const response = await fetch("http://127.0.0.1:8000/api/getLatestPosts");
     const data = await response.json();
 
     (data as dataType).posts.forEach((item) => {
@@ -77,7 +69,7 @@ export const Posts = component$((props: PostsProps) => {
   });
 
   const viewAllPosts = $(() => {
-    window.location.href = "/allPosts";
+    window.location.href = "/allPosts/_";
   });
 
   return (
@@ -109,27 +101,29 @@ export const Posts = component$((props: PostsProps) => {
         <div class="posts mt-2 bg-primary p-3">
           <div class="users mt-2">
             <div class="user">
-              <Resource
-                value={latestPostData}
-                onPending={() => <Spinner />}
-                onRejected={() => <div>Couldn't load news</div>}
-                onResolved={(data) => (
-                  <>
-                    {data.posts.map((item) => (
-                      <div
-                        key={item.id}
-                        class="block bg-secondary color p-2 m-1 br-1 c-pointer"
-                        onClick$={() => redirectToPost(item.id)}
-                      >
-                        <h2 class="m-1 font-head f-600 f-xl">{item.title}</h2>
-                        <p class="m-1 font-other f-400 f-m">
-                          <b>{item.username}</b> at {item.created_at}
-                        </p>
-                      </div>
-                    ))}
-                  </>
-                )}
-              />
+              {props.mode === "partial" && (
+                <Resource
+                  value={latestPostData}
+                  onPending={() => <Spinner />}
+                  onRejected={() => <div>Couldn't load news</div>}
+                  onResolved={(data) => (
+                    <>
+                      {data.posts.map((item) => (
+                        <div
+                          key={item.id}
+                          class="block bg-secondary color p-2 m-1 br-1 c-pointer"
+                          onClick$={() => redirectToPost(item.id)}
+                        >
+                          <h2 class="m-1 font-head f-600 f-xl">{item.title}</h2>
+                          <p class="m-1 font-other f-400 f-m">
+                            <b>{item.username}</b> at {item.created_at}
+                          </p>
+                        </div>
+                      ))}
+                    </>
+                  )}
+                />
+              )}
             </div>
           </div>
         </div>

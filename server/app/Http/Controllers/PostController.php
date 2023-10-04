@@ -9,6 +9,22 @@ use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
+    public function findPosts(string $phrase) {
+        $posts = Post::get();
+        $filteredPosts = array();     
+
+        foreach ($posts as $item) {
+           if(str_contains(strtolower($item['title']), strtolower($phrase))) {
+              array_push($filteredPosts, $item);
+           }
+        }
+
+        return response() -> json([
+            'status' => true,
+            'posts' => $filteredPosts
+        ], 200);
+    }
+
     public function getAllPosts() {
         $posts = Post::get();
 

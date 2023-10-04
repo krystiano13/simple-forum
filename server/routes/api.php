@@ -27,6 +27,7 @@ Route::get('/getSinglePostsCount/{username}', [PostsCountController::class, 'get
 Route::get('/getJoinTime/{username}', [UserController::class,'getJoinTime']);
 Route::get('/getSingleNews/{id}', [NewsController::class, 'getSingleNews']);
 Route::get('/getAllPosts', [PostController::class, 'getAllPosts']);
+Route::get('/findPosts/{phrase}', [PostController::class, 'findPosts']);
 
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login',[UserController::class, 'login']);

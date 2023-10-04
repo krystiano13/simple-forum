@@ -3,6 +3,7 @@ import {
   useStylesScoped$,
   useResource$,
   Resource,
+  $,
 } from "@builder.io/qwik";
 import BestStyles from "../best/Best.css?inline";
 import { Spinner } from "../spinner/Spinner";
@@ -23,6 +24,10 @@ interface dataType {
 
 export const News = component$(() => {
   useStylesScoped$(BestStyles);
+
+  const redirectToNews = $((id: number) => {
+    window.location.href = `/news/${id}`;
+  });
 
   const useNews = useResource$<dataType>(async () => {
     const res = await fetch("http://127.0.0.1:8000/api/getNews");
@@ -61,7 +66,8 @@ export const News = component$(() => {
                   {data.news.map((item) => (
                     <div
                       key={item.id}
-                      class="block bg-secondary color font-other f-400 p-2 m-1 br-1"
+                      onClick$={() => redirectToNews(item.id)}
+                      class="block c-pointer bg-secondary color font-other f-400 p-2 m-1 br-1"
                     >
                       {item.created_at}: {item.title}
                     </div>

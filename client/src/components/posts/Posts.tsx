@@ -24,6 +24,7 @@ interface dataType {
 
 interface PostsProps {
   mode: string;
+  phrase: string;
 }
 
 export const Posts = component$((props: PostsProps) => {
@@ -35,8 +36,8 @@ export const Posts = component$((props: PostsProps) => {
 
     if (props.mode === "partial") {
       url = await "http://127.0.0.1:8000/api/getLatestPosts";
-    } else {
-      url = await "http://127.0.0.1:8000/api/getAllPosts";
+    } else { 
+      url = await `http://127.0.0.1:8000/api/findPosts/${props.phrase}`;
     }
 
     const response = await fetch(url);

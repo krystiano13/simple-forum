@@ -3,6 +3,7 @@ import {
   useSignal,
   useStylesScoped$,
   useVisibleTask$,
+  $,
 } from "@builder.io/qwik";
 import NavbarStyles from "./Navbar.css?inline";
 import { Link } from "@builder.io/qwik-city";
@@ -10,6 +11,20 @@ import { Link } from "@builder.io/qwik-city";
 export const Navbar = component$(() => {
   const isLoggedIn = useSignal(false);
   const user = useSignal("Admin");
+  const searchInput = useSignal<HTMLInputElement>();
+
+  const search = $(async () => {
+    if (!searchInput.value) return;
+    const phrase = await searchInput.value.value;
+    await fetch(`http://127.0.0.1:8000/api/findPosts/${phrase}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status) {
+          localStorage.setItem("phrase", phrase);
+          window.location.href = "/allPosts";
+        }
+      });
+  });
 
   useStylesScoped$(NavbarStyles);
 
@@ -32,8 +47,9 @@ export const Navbar = component$(() => {
         <h1 class="font-head f-600 f-l p-1 color">Simple Forum</h1>
       </section>
       <section class="content flex">
-        <form class="m-1 flex">
+        <form onSubmit$={search} preventdefault:submit class="m-1 flex">
           <input
+            ref={searchInput}
             class="p-1 pl-4 pr-4 font-other bg-secondary color"
             type="text"
             placeholder="Find something ..."

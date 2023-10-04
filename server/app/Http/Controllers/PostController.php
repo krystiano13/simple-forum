@@ -19,6 +19,10 @@ class PostController extends Controller
            }
         }
 
+        if($phrase === "_") {
+            $filteredPosts = $posts;
+        }
+
         return response() -> json([
             'status' => true,
             'posts' => $filteredPosts
